@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <h3><b>Simple</b> Pharmacy System</h3>
                 </div>
 
                 <div class="links">
