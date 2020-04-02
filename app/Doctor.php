@@ -10,7 +10,9 @@ class Doctor extends Model
         'name',
         'email',
         'password',
-        'dr_national_id'
+        'dr_national_id',
+        'pharmacy_id',
+        'is_owner'
     ];
 
 }

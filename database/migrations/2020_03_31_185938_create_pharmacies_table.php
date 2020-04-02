@@ -16,8 +16,8 @@ class CreatePharmaciesTable extends Migration
         Schema::create('pharmacies', function (Blueprint $table) {
             $table->id();
             $table->string('ph_name');
-            $table->string('ph_avatar');
-            $table->string('ph_area');
+            $table->string('ph_avatar')->nullable();
+            $table->foreignId('ph_area')->references('id')->on('areas');
             $table->timestamps();
 
         });

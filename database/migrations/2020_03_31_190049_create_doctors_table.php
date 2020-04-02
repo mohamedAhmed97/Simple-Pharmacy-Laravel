@@ -19,7 +19,7 @@ class CreateDoctorsTable extends Migration
             $table->string('password');
             $table->string('email');
             $table->string('dr_national_id');
-            $table->string('dr_avatar');
+            $table->string('dr_avatar')->nullable();
             $table->integer('is_active')->default(1);
             $table->integer('is_owner')->default(0);
             $table->foreignId('pharmacy_id')->references('id')->on('pharmacies');
