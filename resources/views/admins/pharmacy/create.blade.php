@@ -1,9 +1,23 @@
+@extends('layouts.app')
 @section('content')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Admins</h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  
 <div class="container">
-
-
   <h2>Enter Pharmacy Data</h2>
-  <form method="POST" action="{{route('admins.pharmacy.store')}}">
+  <form method="POST" action="{{route('pharmacy.store')}}">
     @csrf
   <div class="form-group">
       <label>Name:</label>
