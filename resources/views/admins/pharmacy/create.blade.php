@@ -18,7 +18,7 @@
 <div class="container">
   <h2>Enter Pharmacy Data</h2>
   <form method="POST" action="{{route('pharmacy.store')}}">
-    @csrf
+  @csrf
   <div class="form-group">
       <label>Name:</label>
       <input type="text" class="form-control" id="ph_name" placeholder="Enter pharmacy name" name="ph_name">
