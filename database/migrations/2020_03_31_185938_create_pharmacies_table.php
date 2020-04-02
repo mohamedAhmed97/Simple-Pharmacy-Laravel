@@ -17,7 +17,9 @@ class CreatePharmaciesTable extends Migration
             $table->id();
             $table->string('ph_name');
             $table->string('ph_avatar');
+            $table->string('ph_area');
             $table->timestamps();
+
         });
     }
 
