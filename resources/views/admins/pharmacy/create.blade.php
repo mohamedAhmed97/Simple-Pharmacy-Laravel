@@ -3,7 +3,7 @@
 
 
   <h2>Enter Pharmacy Data</h2>
-  <form method="POST" action="{{route('admins.pharmacy.store')}}">
+  <form method="POST" action="{{route('pharmacy.store')}}">
     @csrf
   <div class="form-group">
       <label>Name:</label>
