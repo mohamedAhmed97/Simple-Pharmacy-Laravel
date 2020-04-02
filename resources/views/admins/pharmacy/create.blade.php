@@ -23,12 +23,21 @@
       <label>Name:</label>
       <input type="text" class="form-control" id="ph_name" placeholder="Enter pharmacy name" name="ph_name">
     </div>
+    <!--pharmacy image-->
     <div class="form-group">
-      <label>Area:</label>
-      <input type="text" class="form-control" id="ph_area" placeholder="Enter pharmacy area" name="ph_area">
+      <label>image:</label>
+      <input type="file" class="form-control" id="ph_image" placeholder="Enter pharmacy area" name="ph_avatar">
     </div>
-
-
+    <!-- pharamacy Area-->
+    <div class="form-group">
+      <label>Areas:</label>
+          <select class="custom-select" name="ph_area" required>
+            <!--loop for areas-->
+            @foreach ($areas as $area)
+              <option value="{{$area->id}}">{{$area->en_name}}</option>
+            @endforeach
+          </select>
+      </div>
 
     <h2>Enter Pharmacy Owner Data</h2>
     <div class="form-group">

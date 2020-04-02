@@ -9,7 +9,7 @@ class Pharmacy extends Model
     protected $fillable = [
         'ph_name',
         'ph_area',
-        
+        'ph_avatar' 
     ];
 
     public function doctor()
