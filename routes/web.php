@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
 Route::get('/admins', 'AdminController@index')->name('admins.index');
 
+<<<<<<< HEAD
 //=======admin's.pharmacy==========
 // all pharmacy routes under admins cortrol starts with 'admins'
 
@@ -32,3 +33,7 @@ Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
 Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
 Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
 });
+=======
+//=====medicines.index=========
+Route::get('/medicines', 'MedicineController@index')->name('medicines.index');
+>>>>>>> a93b4c075748b82e875078e6a0dc11541cb86b3f
