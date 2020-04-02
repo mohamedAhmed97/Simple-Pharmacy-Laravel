@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
 Route::get('/admins', 'AdminController@index')->name('admins.index');
+
+//=====medicines.index=========
+Route::get('/medicines', 'MedicineController@index')->name('medicines.index');
