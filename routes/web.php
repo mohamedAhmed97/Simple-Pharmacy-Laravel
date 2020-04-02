@@ -24,4 +24,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admins', 'AdminController@index')->name('admins.index');
 
 //=======admin's.pharmacy==========
-Route::get('/admins/pharmacy', 'AdminController@pharmacy')->name('admins.pharmacy');
+// all pharmacy routes under admins cortrol starts with 'admins'
+
+Route::group(['prefix' => 'admins'], function () {
+
+Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
+Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
+Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
+});

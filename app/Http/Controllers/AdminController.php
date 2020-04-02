@@ -11,10 +11,5 @@ class AdminController extends Controller
      }
 
 
-    public function pharmacy(){
-        return view('admins.pharmacy');
-    }
-
-
-    public function
+    
 }
