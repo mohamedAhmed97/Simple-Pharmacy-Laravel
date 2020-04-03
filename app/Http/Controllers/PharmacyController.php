@@ -6,6 +6,7 @@ use App\Pharmacy;
 use App\Doctor;
 use App\Area;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PharmacyController extends Controller
 {
@@ -32,11 +33,16 @@ class PharmacyController extends Controller
 
     //store pharmacy & doctor
     public function store(Request $request){
-        /* dd($request); */
+        //name of picture
+        $pharmacy_avatar_name=time().$request->file('ph_avatar')->getClientOriginalName();
+        //upload file
+        $path = $request->file('ph_avatar')->storeAs(
+            'avatars/pharmacies',$pharmacy_avatar_name);
         //store pharmacy
         $paharamcy=Pharmacy::create([
             'ph_name' => $request->ph_name ,
             'ph_area' => $request->ph_area,
+            'ph_avatar'=>$pharmacy_avatar_name,
         ]);
         //store pharmacy owner
         Doctor::create([
