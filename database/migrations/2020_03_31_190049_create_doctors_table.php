@@ -22,7 +22,7 @@ class CreateDoctorsTable extends Migration
             $table->string('dr_avatar')->nullable();
             $table->integer('is_active')->default(1);
             $table->integer('is_owner')->default(0);
-            $table->foreignId('pharmacy_id')->references('id')->on('pharmacies');
+            $table->foreignId('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
             $table->timestamps();
         });
     }

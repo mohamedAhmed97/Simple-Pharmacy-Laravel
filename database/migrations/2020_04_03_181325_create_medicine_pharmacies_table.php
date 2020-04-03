@@ -15,8 +15,8 @@ class CreateMedicinePharmaciesTable extends Migration
     {
         Schema::create('medicine_pharmacies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pharmacy_id')->references('id')->on('pharmacies');
-            $table->foreignId('medicine_id')->references('id')->on('medicines');
+            $table->foreignId('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
+            $table->foreignId('medicine_id')->references('id')->on('medicines')->onDelete('cascade');
             $table->integer('quantity')->default(1);
             $table->timestamps();
         });

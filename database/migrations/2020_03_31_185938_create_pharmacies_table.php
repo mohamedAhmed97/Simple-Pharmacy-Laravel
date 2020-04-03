@@ -17,7 +17,7 @@ class CreatePharmaciesTable extends Migration
             $table->id();
             $table->string('ph_name');
             $table->string('ph_avatar')->nullable();
-            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('area_id')->onDelete('cascade');
             $table->timestamps();
 
         });

@@ -7,7 +7,10 @@ use App\Doctor;
 use App\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
+use DB;
 class PharmacyController extends Controller
 {
     
@@ -45,15 +48,17 @@ class PharmacyController extends Controller
         $pharmacy_avatar_name=time().$request->file('ph_avatar')->getClientOriginalName();
         //upload file
         $path = $request->file('ph_avatar')->storeAs(
-            'avatars/pharmacies',$pharmacy_avatar_name);
+            'public/pharmacies',$pharmacy_avatar_name);
+
         //store pharmacy
         $paharamcy=Pharmacy::create([
             'ph_name' => $request->ph_name ,
-            'ph_area' => $request->ph_area,
+            'area_id' => $request->ph_area,
             'ph_avatar'=>$pharmacy_avatar_name,
         ]);
+
         //store pharmacy owner
-        Doctor::create([
+        $doctor=Doctor::create([
             'name' => $request->name,
             'email'=>$request->email,
             'password' => $request->pwd,
@@ -61,6 +66,8 @@ class PharmacyController extends Controller
             'is_owner' => 1,
             'pharmacy_id'=>$paharamcy->id,
         ]);
+        //set role
+        $doctor->assignRole('pharmacy owner');
         return redirect()->route('pharmacy.index');
     }
 
