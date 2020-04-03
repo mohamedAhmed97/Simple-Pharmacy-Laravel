@@ -8,12 +8,17 @@ class Pharmacy extends Model
 {
     protected $fillable = [
         'ph_name',
-        'ph_area',
+        'area_id',
         'ph_avatar' 
     ];
 
     public function doctor()
     {
         return $this->belongsTo('App\Doctor');
+    }
+
+    public function area()
+    {
+        return $this->belongsTo('App\Area');
     }
 }

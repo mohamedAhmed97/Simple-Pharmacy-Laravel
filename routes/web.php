@@ -29,6 +29,16 @@ Route::get('/admins', 'AdminController@index')->name('admins.index');
 Route::group(['prefix' => 'admins'], function () {
 
 Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
+
 Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
+
 Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
+
+Route::delete('/pharmacy/{pharmacy}', 'PharmacyController@destroy')->name('pharmacy.destroy');
+
+Route::get('pharmacy/{pharmacy}', 'PharmacyController@show')->name('pharmacy.show');
+
+Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacy.edit');
+
+Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
 });

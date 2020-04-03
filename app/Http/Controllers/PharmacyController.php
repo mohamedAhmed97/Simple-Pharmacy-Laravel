@@ -20,8 +20,16 @@ class PharmacyController extends Controller
         
     }
 
-    public function show(){
-
+    public function show()
+    {
+        $request = request();
+        $pharmacyId = $request->pharmacy;
+        $pharmacy = Pharmacy::find($pharmacyId);
+        $owner = Doctor::find($pharmacyId);
+        return view('admins.pharmacy.show',[
+            'pharmacy' => $pharmacy,
+            'owner' =>$owner
+        ]);
     }
 
 
@@ -56,5 +64,40 @@ class PharmacyController extends Controller
         return redirect()->route('pharmacy.index');
     }
 
+
+    public function destroy()
+    {
+        $request = request();
+        $pharmacyId = $request->pharmacy;
+        Pharmacy::where('id', $pharmacyId)->delete();
+        Doctor::where('pharmacy_id',$pharmacyId)->delete();
+        
+        return redirect()->route('posts.index');
+    }
+
+
+
+    public function edit()
+    {
+        $request = request();
+        $pharmacyId = $request->pharmacy;
+        $pharmacy = Pharmacy::find($pharmacyId);
+        $owner = Doctor::find($pharmacyId);
+        $areas=Area::all();
+        
+        return view('admins.pharmacy.edit',[
+            'pharmacy' => $pharmacy,
+            'owner' => $owner,
+            'areas' => $areas
+        ]);
+    }
+
+
+    public function update($pharmacyId)
+    {
+        Pharmacy::where('id', $pharmacyId)->first()->update(request()->all());
+        
+        return redirect()->route('pharmacy.index');
+    }
 
 }
