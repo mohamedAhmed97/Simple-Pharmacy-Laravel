@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateMedicinesTable extends Migration
 {
     /**
@@ -15,10 +16,14 @@ class CreateMedicinesTable extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
-            $table->string('med_name');
-            $table->string('price');
+            $table->string('medicine_name');
+            $table->integer('medicine_quantity');
+            $table->string('medicine_type');
+            $table->float('medicine_price');
             $table->timestamps();
         });
+
+        
     }
 
     /**

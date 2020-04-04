@@ -142,6 +142,9 @@
 <script>
   $(document).ready( function () {
     $('table').DataTable();
+    $(".medicine_name").select2({
+        tags: true
+    });
   } );
 </script>
 

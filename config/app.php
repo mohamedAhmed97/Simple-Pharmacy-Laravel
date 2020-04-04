@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //laravel-permission
         Spatie\Permission\PermissionServiceProvider::class,
+        Akaunting\Money\Provider::class,
 
     ],
 

@@ -122,7 +122,7 @@
               </li>
             </ul>
               <li class="nav-item">
-                <a href="/medicines" class="nav-link">
+                <a href="/admins/medicines" class="nav-link">
                   <i class="fas fa-pills nav-icon text-white"></i>
                   <p class="text-white font-weight-bold">Medicines</p>
                 </a>
