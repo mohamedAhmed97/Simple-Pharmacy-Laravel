@@ -16,12 +16,13 @@
   <!-- /.content-header -->
   
 <div class="container">
-  <h2>Enter Pharmacy Data</h2>
-  <form method="POST" enctype="multipart/form-data" action="{{route('pharmacy.store')}}">
+  <h2>Enter Pharmacy New Data</h2>
+  <form method="POST" action="{{route('pharmacy.update',['pharmacy' => $pharmacy->id])}}">
   @csrf
+  {{method_field('PUT')}}
   <div class="form-group">
       <label>Name:</label>
-      <input type="text" class="form-control" id="ph_name" placeholder="Enter pharmacy name" name="ph_name">
+      <input type="text" class="form-control" id="ph_name" value="{{$pharmacy->ph_name}}" name="ph_name">
     </div>
     <!--pharmacy image-->
     <div class="form-group">
@@ -39,14 +40,14 @@
           </select>
       </div>
 
-    <h2>Enter Pharmacy Owner Data</h2>
+    <h2>Enter Pharmacy Owner New Data</h2>
     <div class="form-group">
       <label>Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+      <input type="text" class="form-control" id="name" value="{{$owner->name}}" name="name">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" value="{{$owner->email}}" name="email">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
@@ -54,7 +55,7 @@
     </div>
     <div class="form-group">
       <label>National ID:</label>
-      <input type="number" class="form-control" id="nationalID" placeholder="Enter national-id" name="nationalID">
+      <input type="number" class="form-control" id="nationalID" value="{{$owner->dr_national_id}}" name="nationalID">
     </div>
     
     <button type="submit" class="btn btn-default">Submit</button>

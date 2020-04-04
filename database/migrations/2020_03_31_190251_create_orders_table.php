@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('Deliver_Address');
             $table->integer('action')->default(0);
             $table->integer('status')->default(1);
-            $table->foreignId('dr_id')->references('id')->on('pharmacies');
+            $table->foreignId('dr_id')->references('id')->on('pharmacies')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,7 +1,5 @@
 
 @extends('layouts.app')
-    
-
 @section('content')
 <div class="content-wrapper">
      <!-- TABLE: LATEST ORDERS -->
@@ -25,7 +23,11 @@
                     <thead>
                     <tr>
                       <th>Pharmacy</th>
+                      <th> Image</th>
                       <th>Area</th>
+                      <th>View</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
 
                     </tr>
                     </thead>
@@ -33,8 +35,20 @@
                     @foreach($pharmacies as $pharmacy)
                     <tr class="p-2">
                       <td class="p-2">{{ $pharmacy->ph_name }}</td>
-                      <td>{{ $pharmacy->ph_area }}</td>
-                     
+                      <td class="p-2"><img src="{{asset('storage/pharmacies/'.$pharmacy->ph_avatar)}}" width="70px" height="70px"></td>
+                      <td>{{ $pharmacy->area->en_name }}</td>
+                      <td><a href="{{route('pharmacy.show',['pharmacy' => $pharmacy->id])}}" 
+                          class="btn btn-primary btn-sm">View Details</a></td>
+
+                          <td><a href="{{route('pharmacy.edit',['pharmacy' => $pharmacy->id])}}" class="btn btn-warning btn-sm">Update</a></td>
+                        <td>        
+                        <form method="POST" action="{{route('pharmacy.destroy',['pharmacy' => $pharmacy->id])}}">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <button type='submit' class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                        </td>
+     
                      
                     </tr>
                     @endforeach
