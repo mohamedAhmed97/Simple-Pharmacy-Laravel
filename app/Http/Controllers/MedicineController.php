@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Medicine;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class MedicineController extends Controller
 {
     public function index(){
         return view('admins.medicines.index',[
             'medicines' => Medicine::all(),
+             DataTables::of(Medicine::query())->make(true)
         ]);
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c8f3d48faa27edc45239aaef595250e",
+    "content-hash": "dfd2688c8c0c6c8c0a8d326b4b34380e",
     "packages": [
         {
             "name": "akaunting/money",
@@ -559,6 +559,56 @@
                 "laravel"
             ],
             "time": "2020-03-11T21:05:07+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^2.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1266,6 +1316,53 @@
                 "storage"
             ],
             "time": "2020-03-17T18:58:12+00:00"
+        },
+        {
+            "name": "mbezhanov/faker-provider-collection",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mbezhanov/faker-provider-collection.git",
+                "reference": "076c00f0d438f12ec7da0fdaadbfb7940913763e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mbezhanov/faker-provider-collection/zipball/076c00f0d438f12ec7da0fdaadbfb7940913763e",
+                "reference": "076c00f0d438f12ec7da0fdaadbfb7940913763e",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "^1.6",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "php-mock/php-mock": "^2.0",
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bezhanov\\Faker\\": "src/Faker"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marin Bezhanov",
+                    "email": "marin.bezhanov@gmail.com",
+                    "homepage": "http://marinbezhanov.com"
+                }
+            ],
+            "description": "A collection of custom providers for the Faker library",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2018-11-22T06:55:34+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3690,6 +3787,77 @@
                 "php"
             ],
             "time": "2020-03-13T01:23:26+00:00"
+        },
+        {
+            "name": "yajra/laravel-datatables-oracle",
+            "version": "v9.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-datatables.git",
+                "reference": "976e70a2f0b831725da335cd434a11ff73d3c854"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/976e70a2f0b831725da335cd434a11ff73d3c854",
+                "reference": "976e70a2f0b831725da335cd434a11ff73d3c854",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.8.*|^6|^7",
+                "illuminate/filesystem": "5.8.*|^6|^7",
+                "illuminate/http": "5.8.*|^6|^7",
+                "illuminate/support": "5.8.*|^6|^7",
+                "illuminate/view": "5.8.*|^6|^7",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.8"
+            },
+            "suggest": {
+                "yajra/laravel-datatables-buttons": "Plugin for server-side exporting of dataTables.",
+                "yajra/laravel-datatables-editor": "Plugin to use DataTables Editor (requires a license).",
+                "yajra/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
+                "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTables."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Yajra\\DataTables\\DataTablesServiceProvider"
+                    ],
+                    "aliases": {
+                        "DataTables": "Yajra\\DataTables\\Facades\\DataTables"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yajra\\DataTables\\": "src/"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arjay Angeles",
+                    "email": "aqangeles@gmail.com"
+                }
+            ],
+            "description": "jQuery DataTables API for Laravel 4|5",
+            "keywords": [
+                "datatables",
+                "jquery",
+                "laravel"
+            ],
+            "time": "2020-03-03T16:29:31+00:00"
         }
     ],
     "packages-dev": [
@@ -3978,56 +4146,6 @@
                 "whoops"
             ],
             "time": "2020-01-15T10:00:00+00:00"
-        },
-        {
-            "name": "fzaninotto/faker",
-            "version": "v1.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "squizlabs/php_codesniffer": "^2.9.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",

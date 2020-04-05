@@ -11,6 +11,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 use DB;
+use App\Http\Requests\StorePharmacy;
 class PharmacyController extends Controller
 {
     
@@ -43,7 +44,7 @@ class PharmacyController extends Controller
     }
 
     //store pharmacy & doctor
-    public function store(Request $request){
+    public function store(StorePharmacy $request){
         //name of picture
         $pharmacy_avatar_name=time().$request->file('ph_avatar')->getClientOriginalName();
         //upload file
