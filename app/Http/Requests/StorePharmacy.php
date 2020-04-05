@@ -25,7 +25,7 @@ class StorePharmacy extends FormRequest
     {
         return [
             "ph_name"=>'required|max:255',
-            "ph_avatar"=>' mimes:jpeg,bmp,png,webp|required',
+            "ph_avatar"=>' mimes:jpeg,jpg|required',
             "ph_area"=>'required',
             "name"=>'required|max:255',
             "email"=>'email|required|unique:doctors',

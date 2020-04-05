@@ -10,7 +10,7 @@ class Doctor extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
-    protected $guard_name = 'doctors';
+    protected $guard_name = 'doctor';
     /**
      * The attributes that are mass assignable.
      *

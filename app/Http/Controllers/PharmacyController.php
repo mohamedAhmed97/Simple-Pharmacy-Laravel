@@ -12,6 +12,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 use DB;
 use App\Http\Requests\StorePharmacy;
+use Hash;
 class PharmacyController extends Controller
 {
     
@@ -62,7 +63,7 @@ class PharmacyController extends Controller
         $doctor=Doctor::create([
             'name' => $request->name,
             'email'=>$request->email,
-            'password' => $request->pwd,
+            'password' => Hash::make($request->pwd),
             'dr_national_id' => $request->nationalID,
             'is_owner' => 1,
             'pharmacy_id'=>$paharamcy->id,

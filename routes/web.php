@@ -51,3 +51,19 @@ Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmac
 
 Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
 });
+
+
+
+//=======Doctors Section ==========
+// all Doctors routes under doctors cortrol starts with 'doctors'
+Route::group(['prefix' => 'doctors'], function () {
+    //show doctors login page
+    Route::get('/login', 'doctors\DoctorLoginController@index')->name('doctorLogin.index');
+    //doctor login  
+    Route::post('/login', 'doctors\DoctorLoginController@login');
+});
+
+Route::group(['prefix' => 'doctors','middleware'=>'DoctorLogin'], function () {
+    //doctor Admin panel
+    Route::get('/','DoctorController@index')->name('doctors.index');
+});
