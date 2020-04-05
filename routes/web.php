@@ -19,19 +19,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::GET('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
-Route::get('/admins', 'AdminController@index')->name('admins.index');
+Route::GET('/admins', 'AdminController@index')->name('admins.index');
 
 
 
 Route::group(['prefix' => 'admins'], function () {
 //=====admins.medicines=========
-    Route::get('/medicines', 'MedicineController@index')->name('medicines.index');
-    Route::get('/medicines/create', 'MedicineController@create')->name('medicines.create');
+    Route::GET('/medicines', 'MedicineController@index')->name('medicines.index');
+    Route::GET('/medicines/create', 'MedicineController@create')->name('medicines.create');
     Route::post('/medicines', 'MedicineController@store')->name('medicines.store');
-    Route::get('/medicines/{medicine}', 'MedicineController@show')->name('medicines.show');
+    Route::GET('/medicines/{medicine}', 'MedicineController@show')->name('medicines.show');
     Route::DELETE('/medicines/{medicine}', 'MedicineController@destroy')->name('medicines.destroy');
+    Route::GET('/medicines/{medicine}/edit', 'MedicineController@edit')->name('medicines.edit');
+    Route::PUT('/medicines/{medicine}', 'MedicineController@update')->name('medicines.update');
 
 //=======admin's.pharmacy==========
 // all pharmacy routes under admins cortrol starts with 'admins'

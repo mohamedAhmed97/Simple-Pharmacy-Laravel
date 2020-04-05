@@ -4,9 +4,9 @@
 @section('content')
 <div class="content-wrapper">
      <div class="card">
-              <div class="card-header border-transparent">
+          <div class="card-header border-transparent">
                 <h3 class="card-title font-weight-bold">Medicines</h3>
-              </div>
+          </div>
               <div class="card-body">
                 <div class="table-responsive m-2">
                   <table class="table table-bordered data-table m-1 " id="medicines_table">
@@ -36,9 +36,11 @@
                         </div>
                       </td>
                       <td><a class="btn btn-info font-weight-bold"  
-                        href="{{route('medicines.show',['medicine' => $medicine->id])}}">View</a></td>
-                      <td><a class="btn btn-primary font-weight-bold">Edit</a></td>
-                      <!-- <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  -->
+                        href="{{route('medicines.show',['medicine' => $medicine->id])}}">
+                        View</a></td>
+                      <td><a class="btn btn-primary font-weight-bold"
+                        href="{{route('medicines.edit',['medicine' => $medicine->id])}}">
+                        Edit</a></td>
                       <td>
                         <form class="d-inline" method="post" 
                          action="{{route('medicines.show',['medicine' => $medicine->id])}}">
