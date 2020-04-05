@@ -16,8 +16,11 @@
     <div class="form-group">
       <label class="m-2 bg-dark text-light rounded-pill p-2 font-weight-bold">
       Area Name</label>
-      <input name="name" type="text" 
+      <input name="en_name" type="text" 
       class="form-control" aria-describedby="emailHelp">
+      @error('en_name')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
      
    
       <div class="form-group">
@@ -25,6 +28,9 @@
       Area Address</label>
       <input name="address" type="text" 
       class="form-control" aria-describedby="emailHelp">
+      @error('address')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     
      
 

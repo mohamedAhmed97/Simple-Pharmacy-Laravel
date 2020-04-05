@@ -34,10 +34,23 @@ class AreaController extends Controller
     
     public function store(Request $request){
     
+        $validatedData = $request->validate([
+            'en_name' => 'required|min:3|unique:areas',
+            'address' => 'required|min:3',
+            
+        ],[
+            'en_name.min' => 'Area name has minimum of 3 chars',
+            'en_name.required' => 'Area name is required, you have to fill it!',
+            'en_name.unique' => 'Area name is unique, you have to choose a different name!',
+            'address.min' => 'Address name has minimum of 3 chars',
+            'address.required' => 'Address name is required, you have to fill it!',
+            
+            
+        ]);
 
         
         Area::create([
-            'en_name' => $request->name ,
+            'en_name' => $request->en_name ,
             'address' => $request->address,
             
         ]);

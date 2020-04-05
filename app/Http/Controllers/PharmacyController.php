@@ -18,7 +18,7 @@ class PharmacyController extends Controller
     public function index(){
         $pahrmacies = Pharmacy::all();
 
-        return view('admins.pharmacy.index', [
+        return view('admins.pharmacies.index', [
             'pharmacies' => $pahrmacies,
         ]);
         
@@ -30,7 +30,7 @@ class PharmacyController extends Controller
         $pharmacyId = $request->pharmacy;
         $pharmacy = Pharmacy::find($pharmacyId);
         $owner = Doctor::find($pharmacyId);
-        return view('admins.pharmacy.show',[
+        return view('admins.pharmacies.show',[
             'pharmacy' => $pharmacy,
             'owner' =>$owner
         ]);
@@ -40,7 +40,7 @@ class PharmacyController extends Controller
     public function create(){
         //get all areas
         $areas=Area::all();
-        return view('admins.pharmacy.create')->with('areas',$areas);
+        return view('admins.pharmacies.create')->with('areas',$areas);
     }
 
     //store pharmacy & doctor
@@ -69,7 +69,7 @@ class PharmacyController extends Controller
         ]);
         //set role
         $doctor->assignRole('pharmacy owner');
-        return redirect()->route('pharmacy.index');
+        return redirect()->route('pharmacies.index');
     }
 
 
@@ -80,7 +80,7 @@ class PharmacyController extends Controller
         Pharmacy::where('id', $pharmacyId)->delete();
         Doctor::where('pharmacy_id',$pharmacyId)->delete();
         
-        return redirect()->route('pharmacy.index');
+        return redirect()->route('pharmacies.index');
     }
 
 
@@ -105,7 +105,7 @@ class PharmacyController extends Controller
     {
         Pharmacy::where('id', $pharmacyId)->first()->update(request()->all());
         
-        return redirect()->route('pharmacy.index');
+        return redirect()->route('pharmacies.index');
     }
 
 }

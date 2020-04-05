@@ -32,42 +32,46 @@ Route::group(['prefix' => 'admins'], function () {
 
 
 
-//=======admin's.pharmacy==========
-// all pharmacy routes under admins cortrol starts with 'admins'
+
 
 Route::group(['prefix' => 'admins'], function () {
 
-Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
+//=======admin's.pharmacy==========
 
-Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
 
-Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
+Route::get('pharmacies', 'PharmacyController@index')->name('pharmacies.index');
 
-Route::delete('/pharmacy/{pharmacy}', 'PharmacyController@destroy')->name('pharmacy.destroy');
+Route::get('pharmacies/create', 'PharmacyController@create')->name('pharmacies.create');
 
-Route::get('pharmacy/{pharmacy}', 'PharmacyController@show')->name('pharmacy.show');
+Route::post('pharmacies', 'PharmacyController@store')->name('pharmacies.store');
 
-Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacy.edit');
+Route::delete('/pharmacies/{pharmacy}', 'PharmacyController@destroy')->name('pharmacies.destroy');
 
-Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
-});
+Route::get('pharmacies/{pharmacy}', 'PharmacyController@show')->name('pharmacies.show');
 
+Route::get('pharmacies/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacies.edit');
+
+Route::put('pharmacies/{pharmacy}', 'PharmacyController@update')->name('pharmacies.update');
 
 
 //========= admin's areas =========
 
-Route::group(['prefix' => 'admins'], function () {
+Route::get('areas', 'AreaController@index')->name('areas.index');
+    
+Route::get('areas/create', 'AreaController@create')->name('areas.create');
+    
+Route::post('areas', 'AreaController@store')->name('areas.store');
+    
+Route::delete('/areas/{areas}', 'AreaController@destroy')->name('areas.destroy');
+    
+Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');
+    
+Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
+    
+    
 
-    Route::get('areas', 'AreaController@index')->name('areas.index');
-    
-    Route::get('areas/create', 'AreaController@create')->name('areas.create');
-    
-    Route::post('areas', 'AreaController@store')->name('areas.store');
-    
-    Route::delete('/areas/{areas}', 'AreaController@destroy')->name('areas.destroy');
-    
-    Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');
-    
-    Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
-    });
-    
+
+});
+
+
+
