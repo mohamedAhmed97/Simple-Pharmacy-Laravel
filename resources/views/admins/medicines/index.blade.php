@@ -38,7 +38,18 @@
                       <td><a class="btn btn-info font-weight-bold"  
                         href="{{route('medicines.show',['medicine' => $medicine->id])}}">View</a></td>
                       <td><a class="btn btn-primary font-weight-bold">Edit</a></td>
-                      <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  
+                      <!-- <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  -->
+                      <td>
+                        <form class="d-inline" method="post" 
+                         action="{{route('medicines.show',['medicine' => $medicine->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                            onclick="return confirm('Do you want to delete this medicine?')" 
+                            class="btn btn-danger font-weight-bold border border-primary">
+                            Delete</button>
+                        </form>
+                    </td> 
                     </tr>
                     @endforeach
                     
