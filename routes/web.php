@@ -51,3 +51,23 @@ Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmac
 
 Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
 });
+
+
+
+//========= admin's areas =========
+
+Route::group(['prefix' => 'admins'], function () {
+
+    Route::get('areas', 'AreaController@index')->name('areas.index');
+    
+    Route::get('areas/create', 'AreaController@create')->name('areas.create');
+    
+    Route::post('areas', 'AreaController@store')->name('areas.store');
+    
+    Route::delete('/areas/{areas}', 'AreaController@destroy')->name('areas.destroy');
+    
+    Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');
+    
+    Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
+    });
+    

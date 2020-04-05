@@ -79,7 +79,7 @@ class PharmacyController extends Controller
         Pharmacy::where('id', $pharmacyId)->delete();
         Doctor::where('pharmacy_id',$pharmacyId)->delete();
         
-        return redirect()->route('posts.index');
+        return redirect()->route('pharmacy.index');
     }
 
 
