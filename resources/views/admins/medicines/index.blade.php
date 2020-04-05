@@ -35,7 +35,8 @@
                       @money($medicine->medicine_price, 'USD')
                         </div>
                       </td>
-                      <td><a class="btn btn-info font-weight-bold">View</a></td>
+                      <td><a class="btn btn-info font-weight-bold"  
+                        href="{{route('medicines.show',['medicine' => $medicine->id])}}">View</a></td>
                       <td><a class="btn btn-primary font-weight-bold">Edit</a></td>
                       <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  
                     </tr>

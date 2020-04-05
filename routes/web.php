@@ -23,17 +23,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
 Route::get('/admins', 'AdminController@index')->name('admins.index');
 
-//=====admins.medicines=========
+
+
 Route::group(['prefix' => 'admins'], function () {
-    Route::get('medicines', 'MedicineController@index')->name('medicines.index');
-    Route::get('medicines/create', 'MedicineController@create')->name('medicines.create');
-    Route::post('medicines', 'MedicineController@store')->name('medicines.store');
-    });
+//=====admins.medicines=========
+    Route::get('/medicines', 'MedicineController@index')->name('medicines.index');
+    Route::get('/medicines/create', 'MedicineController@create')->name('medicines.create');
+    Route::post('/medicines', 'MedicineController@store')->name('medicines.store');
+    Route::get('/medicines/{medicine}', 'MedicineController@show')->name('medicines.show');
 
 
-
-
-
+});
 Route::group(['prefix' => 'admins'], function () {
 
 //=======admin's.pharmacy==========
