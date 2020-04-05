@@ -23,31 +23,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
 Route::get('/admins', 'AdminController@index')->name('admins.index');
 
-//=====admins.medicines=========
+
+
 Route::group(['prefix' => 'admins'], function () {
-    Route::get('medicines', 'MedicineController@index')->name('medicines.index');
-    Route::get('medicines/create', 'MedicineController@create')->name('medicines.create');
-    Route::post('medicines', 'MedicineController@store')->name('medicines.store');
-    });
-
-
+//=====admins.medicines=========
+    Route::get('/medicines', 'MedicineController@index')->name('medicines.index');
+    Route::get('/medicines/create', 'MedicineController@create')->name('medicines.create');
+    Route::post('/medicines', 'MedicineController@store')->name('medicines.store');
+    Route::get('/medicines/{medicine}', 'MedicineController@show')->name('medicines.show');
 
 //=======admin's.pharmacy==========
 // all pharmacy routes under admins cortrol starts with 'admins'
+    Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
 
-Route::group(['prefix' => 'admins'], function () {
+    Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
 
-Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
+    Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
 
-Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
+    Route::delete('/pharmacy/{pharmacy}', 'PharmacyController@destroy')->name('pharmacy.destroy');
 
-Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
+    Route::get('pharmacy/{pharmacy}', 'PharmacyController@show')->name('pharmacy.show');
 
-Route::delete('/pharmacy/{pharmacy}', 'PharmacyController@destroy')->name('pharmacy.destroy');
+    Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacy.edit');
 
-Route::get('pharmacy/{pharmacy}', 'PharmacyController@show')->name('pharmacy.show');
-
-Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacy.edit');
-
-Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
+    Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
 });

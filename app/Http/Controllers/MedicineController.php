@@ -48,4 +48,17 @@ class MedicineController extends Controller
         return redirect()->route('medicines.index');
     }
 
+    public function show(){ 
+        $request = request();
+        $medicineId = $request->medicine;
+        $medicine = Medicine::find($medicineId);
+        return view('admins.medicines.show',[
+            'medicine' => $medicine,
+        ]);
+        // return view('medicines.show',[
+        //     'medicine' => Medicine::find(request()->medicine),
+        // ]);
+    }
+
+
 }
