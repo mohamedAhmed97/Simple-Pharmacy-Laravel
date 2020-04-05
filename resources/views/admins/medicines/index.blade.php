@@ -9,7 +9,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive m-2">
-                  <table class="table m-1 ">
+                  <table class="table table-bordered data-table m-1 " id="medicines_table">
                     <thead class="m-3">
                     <a class="btn btn-success font-weight-bold p-2 m-3"
                             href="{{route('medicines.create')}}">Add Medicine</a>
@@ -35,9 +35,21 @@
                       @money($medicine->medicine_price, 'USD')
                         </div>
                       </td>
-                      <td><a class="btn btn-info font-weight-bold">View</a></td>
+                      <td><a class="btn btn-info font-weight-bold"  
+                        href="{{route('medicines.show',['medicine' => $medicine->id])}}">View</a></td>
                       <td><a class="btn btn-primary font-weight-bold">Edit</a></td>
-                      <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  
+                      <!-- <td><a class="btn btn-danger font-weight-bold">Delete</a></td>  -->
+                      <td>
+                        <form class="d-inline" method="post" 
+                         action="{{route('medicines.show',['medicine' => $medicine->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                            onclick="return confirm('Do you want to delete this medicine?')" 
+                            class="btn btn-danger font-weight-bold border border-primary">
+                            Delete</button>
+                        </form>
+                    </td> 
                     </tr>
                     @endforeach
                     
@@ -61,3 +73,21 @@
   <!-- /.content-wrapper -->
 </div>
 @endsection
+@push('head')
+
+<script>
+$('#medicines_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: `{!! route('medicines.index') !!}`,
+    columns: [
+              {data: 'id', name: 'id'},
+              {data: 'medicine_name', name: 'medicine_name'},
+              {data: 'medicine_quantity', name: 'medicine_quantity'},
+              {data: 'medicine_type', name: 'medicine_type'},
+              {data: 'medicine_price', name: 'medicine_price'},
+              {data: 'id', name: 'id' , orderable: true, searchable: true},
+            ]});
+</script>
+@endpush
+
