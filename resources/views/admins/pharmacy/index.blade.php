@@ -16,11 +16,14 @@
                   </button>
                 </div>
               </div>
+              
               <!-- /.card-header -->
               <div class="card-body p-2 m-2">
                 <div class="table-responsive p-2">
                   <table class="table m-0 p-2">
                     <thead>
+                    <a class="btn btn-success font-weight-bold p-2 m-3"
+                            href="{{route('pharmacy.create')}}">Add Pharmacy</a>
                     <tr>
                       <th>Pharmacy</th>
                       <th> Image</th>
