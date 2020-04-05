@@ -74,3 +74,20 @@
   <!-- /.content-wrapper -->
 </div>
 @endsection
+
+@push('head')
+
+<script>
+$('#pharmacies').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: `{!! route('pharmacies.index') !!}`,
+    columns: [
+              {data: 'id', name: 'id'},
+              {data: 'ph_name', name: 'ph_name'},
+              {data: 'ph_avatar', name: 'ph_avatar'},
+              {data: 'en_name', name: 'en_name'},
+              {data: 'id', name: 'id' , orderable: true, searchable: true},
+            ]});
+</script>
+@endpush

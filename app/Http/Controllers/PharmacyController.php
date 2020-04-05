@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 use DB;
 use App\Http\Requests\StorePharmacy;
+use Yajra\DataTables\Facades\DataTables;
+
 class PharmacyController extends Controller
 {
     
@@ -20,6 +22,7 @@ class PharmacyController extends Controller
 
         return view('admins.pharmacies.index', [
             'pharmacies' => $pahrmacies,
+            DataTables::of(Pharmacy::query())->make(true)
         ]);
         
     }
