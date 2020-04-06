@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admins.sidebar')
     
 
 @section('content')
@@ -90,6 +90,8 @@ $('#medicines_table').DataTable({
               {data: 'medicine_price', name: 'medicine_price'},
               {data: 'id', name: 'id' , orderable: true, searchable: true},
             ]});
+    
 </script>
+
 @endpush
 

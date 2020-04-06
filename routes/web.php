@@ -23,9 +23,8 @@ Route::GET('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
 Route::GET('/admins', 'AdminController@index')->name('admins.index');
 
-
-
 Route::group(['prefix' => 'admins'], function () {
+
 //=====admins.medicines=========
     Route::GET('/medicines', 'MedicineController@index')->name('medicines.index');
     Route::GET('/medicines/create', 'MedicineController@create')->name('medicines.create');
@@ -34,10 +33,6 @@ Route::group(['prefix' => 'admins'], function () {
     Route::DELETE('/medicines/{medicine}', 'MedicineController@destroy')->name('medicines.destroy');
     Route::GET('/medicines/{medicine}/edit', 'MedicineController@edit')->name('medicines.edit');
     Route::PUT('/medicines/{medicine}', 'MedicineController@update')->name('medicines.update');
-
-
-});
-Route::group(['prefix' => 'admins'], function () {
 
 //=======admin's.pharmacy==========
 
@@ -78,7 +73,6 @@ Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
 
 
 
-<<<<<<< HEAD
 //=======Doctors Section ==========
 // all Doctors routes under doctors cortrol starts with 'doctors'
 Route::group(['prefix' => 'doctors'], function () {
@@ -92,5 +86,3 @@ Route::group(['prefix' => 'doctors','middleware'=>'DoctorLogin'], function () {
     //doctor Admin panel
     Route::get('/','DoctorController@index')->name('doctors.index');
 });
-=======
->>>>>>> ec57c7bf858350480a396bae597d4a54800c7b13

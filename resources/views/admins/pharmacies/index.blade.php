@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admins.sidebar')
 @section('content')
 <div class="content-wrapper">
      <!-- TABLE: LATEST ORDERS -->

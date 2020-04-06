@@ -32,7 +32,6 @@
                 <a class="navbar-brand" href="/">
                     Simple Pharmacy System
                 </a>
-              
                 <button class="navbar-toggler text-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon text-warning"></span>
                 </button>
@@ -73,15 +72,21 @@
                 </div>
             </div>
         </nav>
-      
-        <main>
-            @yield('content')
-        </main>
-        <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+    </div>
+
+ <!-- Control Sidebar -->
+ <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+        <main style="height:100%">
+            @yield('sidebar')
+        </main>
+        <main>
+            @yield('content')
+        </main>
+      
+       
 <section>
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -126,16 +131,11 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>

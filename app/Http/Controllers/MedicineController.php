@@ -29,7 +29,6 @@ class MedicineController extends Controller
             'medicine_type' =>  $request->medicine_type,
             'medicine_price' =>  $request->medicine_price,
         ]);
-        
         return redirect()->route('medicines.index');
     }
 
