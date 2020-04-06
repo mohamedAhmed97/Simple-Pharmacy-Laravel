@@ -1,6 +1,4 @@
 @extends('admins.sidebar') 
-
-
 @section('content')
 <!-- Main content -->
 <section class="content-wrapper"> 
