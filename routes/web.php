@@ -19,37 +19,67 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::GET('/home', 'HomeController@index')->name('home');
 //=====admins.index=========
-Route::get('/admins', 'AdminController@index')->name('admins.index');
+Route::GET('/admins', 'AdminController@index')->name('admins.index');
+
+Route::group(['prefix' => 'admins'], function () {
 
 //=====admins.medicines=========
-Route::group(['prefix' => 'admins'], function () {
-    Route::get('medicines', 'MedicineController@index')->name('medicines.index');
-    Route::get('medicines/create', 'MedicineController@create')->name('medicines.create');
-    Route::post('medicines', 'MedicineController@store')->name('medicines.store');
-    });
-
-
+    Route::GET('/medicines', 'MedicineController@index')->name('medicines.index');
+    Route::GET('/medicines/create', 'MedicineController@create')->name('medicines.create');
+    Route::post('/medicines', 'MedicineController@store')->name('medicines.store');
+    Route::GET('/medicines/{medicine}', 'MedicineController@show')->name('medicines.show');
+    Route::DELETE('/medicines/{medicine}', 'MedicineController@destroy')->name('medicines.destroy');
+    Route::GET('/medicines/{medicine}/edit', 'MedicineController@edit')->name('medicines.edit');
+    Route::PUT('/medicines/{medicine}', 'MedicineController@update')->name('medicines.update');
 
 //=======admin's.pharmacy==========
-// all pharmacy routes under admins cortrol starts with 'admins'
 
-Route::group(['prefix' => 'admins'], function () {
 
-Route::get('pharmacy', 'PharmacyController@index')->name('pharmacy.index');
+Route::get('pharmacies', 'PharmacyController@index')->name('pharmacies.index');
 
-Route::get('pharmacy/create', 'PharmacyController@create')->name('pharmacy.create');
+Route::get('pharmacies/create', 'PharmacyController@create')->name('pharmacies.create');
 
-Route::post('pharmacy', 'PharmacyController@store')->name('pharmacy.store');
+Route::post('pharmacies', 'PharmacyController@store')->name('pharmacies.store');
 
-Route::delete('/pharmacy/{pharmacy}', 'PharmacyController@destroy')->name('pharmacy.destroy');
+Route::delete('/pharmacies/{pharmacy}', 'PharmacyController@destroy')->name('pharmacies.destroy');
 
-Route::get('pharmacy/{pharmacy}', 'PharmacyController@show')->name('pharmacy.show');
+Route::get('pharmacies/{pharmacy}', 'PharmacyController@show')->name('pharmacies.show');
 
-Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacy.edit');
+Route::get('pharmacies/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmacies.edit');
 
-Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
+Route::put('pharmacies/{pharmacy}', 'PharmacyController@update')->name('pharmacies.update');
+
+
+//========= admin's areas =========
+
+Route::get('areas', 'AreaController@index')->name('areas.index');
+    
+Route::get('areas/create', 'AreaController@create')->name('areas.create');
+    
+Route::post('areas', 'AreaController@store')->name('areas.store');
+    
+Route::delete('/areas/{areas}', 'AreaController@destroy')->name('areas.destroy');
+    
+Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');
+    
+Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
+    
+
+});
+
+//=======Doctors Section ==========
+// all Doctors routes under doctors cortrol starts with 'doctors'
+Route::group(['prefix' => 'doctors'], function () {
+    //show doctors login page
+    Route::get('/login', 'doctors\DoctorLoginController@index')->name('doctorLogin.index');
+    //doctor login  
+    Route::post('/login', 'doctors\DoctorLoginController@login');
+});
+Route::group(['prefix' => 'doctors','middleware'=>'DoctorLogin'], function () {
+    //doctor Admin panel
+    Route::get('/','DoctorController@index')->name('doctors.index');
 });
 
 //=========admin's. doctor================

@@ -17,13 +17,13 @@ class PermissionsDoctorSeeder extends Seeder
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
         // create permissions
-        Permission::create(['guard_name' => 'doctors','name' => 'add doctor']);
-        Permission::create(['guard_name' => 'doctors','name' => 'delete doctor']);
-        Permission::create(['guard_name' => 'doctors','name' => 'edit doctor']);
-        Permission::create(['guard_name' => 'doctors','name' => 'show doctors']);
+        Permission::create(['guard_name' => 'doctor','name' => 'add doctor']);
+        Permission::create(['guard_name' => 'doctor','name' => 'delete doctor']);
+        Permission::create(['guard_name' => 'doctor','name' => 'edit doctor']);
+        Permission::create(['guard_name' => 'doctor','name' => 'show doctors']);
         //pharmacy owner
         // create roles and assign existing permissions
-        $role1 = Role::create(['guard_name' => 'doctors','name' => 'pharmacy owner']);
+        $role1 = Role::create(['guard_name' => 'doctor','name' => 'pharmacy owner']);
         $role1->givePermissionTo('add doctor');
         $role1->givePermissionTo('delete doctor');
         $role1->givePermissionTo('edit doctor');
