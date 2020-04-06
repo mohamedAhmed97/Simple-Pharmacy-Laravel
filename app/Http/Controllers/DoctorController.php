@@ -14,7 +14,6 @@ class DoctorController extends Controller
         //dd($doctors);
         return view('admins.doctors.index', ["doctors"=>$doctors]);
     }
-<<<<<<< HEAD
     public function show()
     {
         $request= request(); 
@@ -73,9 +72,6 @@ class DoctorController extends Controller
         return redirect()->route('doctors.index');
     }
     
-=======
-
->>>>>>> 42f5c6bba8982d0efb4afd7f3db1012ebbc6f7ff
     
 }
 
