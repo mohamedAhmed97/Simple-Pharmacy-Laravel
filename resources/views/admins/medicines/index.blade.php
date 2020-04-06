@@ -1,4 +1,9 @@
 @extends('admins.sidebar')
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 007dedca35eabb2dcc5120b3bf2d3f2ae6ce533a
 @section('content')
 <div class="content-wrapper">
      <div class="card">

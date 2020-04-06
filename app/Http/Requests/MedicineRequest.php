@@ -25,9 +25,9 @@ class MedicineRequest extends FormRequest
     {
         return [
                 'medicine_name' => 'required|unique:medicines,id|min:3',
-                'medicine_quantity' => 'required',
+                'medicine_quantity' => 'required|numeric',
                 'medicine_type' => 'required|min:4',
-                'medicine_price' => 'required',  
+                'medicine_price' => 'required|numeric',  
         ];
     }
 
