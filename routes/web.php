@@ -51,3 +51,20 @@ Route::get('pharmacy/{pharmacy}/edit', 'PharmacyController@edit')->name('pharmac
 
 Route::put('pharmacy/{pharmacy}', 'PharmacyController@update')->name('pharmacy.update');
 });
+
+//=========admin's. doctor================
+
+Route::get('/admins/doctors', 'DoctorController@index')->name('doctors.index');
+
+Route::get('/admins/doctors/create', 'DoctorController@create')->name('doctors.create');
+
+Route::get('/admins/doctors/{doctor}','DoctorController@show')->name('doctors.show');
+
+Route::post('/admins/doctors', 'DoctorController@store')->name('doctors.store');
+
+Route::delete('/admins/doctors/{doctor}', 'DoctorController@destroy')->name('doctors.destroy');
+
+Route::get('/admins/doctors/{doctor}/edit', 'DoctorController@edit')->name('doctors.edit');
+
+Route::put('/admins/doctors/{doctor}', 'DoctorController@update')->name('doctors.update');
+
