@@ -52,7 +52,7 @@
             </ul>
           </li> ​
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/admins/pharmacies" class="nav-link">
               <i class="fas fa-prescription-bottle-alt nav-icon text-danger"></i>
               <p class="text-danger font-weight-bold">
               Pharmacies
@@ -60,6 +60,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/admins/pharmacies" class="nav-link">
+                  <i class="fas fa-prescription-bottle-alt nav-icon text-white"></i>
+                  <p class="text-white font-weight-bold">View Pharmacy Section</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="fas fa-file-medical text-white nav-icon"></i>
@@ -69,13 +75,19 @@
           <li class="nav-item"> 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="fas fa-stethoscope nav-icon text-white"></i>
-              <p class="text-white font-weight-bold">
+              <i class="fas fa-stethoscope nav-icon text-info"></i>
+              <p class="text-info font-weight-bold">
               Doctors​
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/admins/doctors" class="nav-link">
+                  <i class="fas fa-stethoscope nav-icon text-white"></i>
+                  <p class="text-white font-weight-bold">View Doctor Section</p>
+                </a>
+              </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="fas fa-file-medical text-white nav-icon"></i>
@@ -98,7 +110,7 @@
           </li>
             </ul>
             <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/admins/areas" class="nav-link">
                   <i class="fas fa-chart-area nav-icon text-warning"></i>
                   <p class="text-warning font-weight-bold">Areas​</p>
                 </a>
