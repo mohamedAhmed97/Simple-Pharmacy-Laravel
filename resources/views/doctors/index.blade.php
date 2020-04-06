@@ -4,10 +4,6 @@
 @section('content')
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
-  {{-- @dd(Auth::guard('doctor')->user()->can('add doctor')) --}}
-       
-  
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -129,7 +125,7 @@
               </li>
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="fas fa-history nav-icon text-success"></i>
+                  <i class="fas fa-shopping-cart nav-icon text-success"></i>
                   <p class="text-success font-weight-bold">Orders</p>
                 </a>
               </li> 
