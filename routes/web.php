@@ -65,36 +65,45 @@ Route::delete('/areas/{areas}', 'AreaController@destroy')->name('areas.destroy')
 Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');
     
 Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
-    
+
+//=========admin's. doctor================
+
+Route::get('/doctors', 'DoctorController@index')->name('doctors.index');
+
+Route::get('/doctors/create', 'DoctorController@create')->name('doctors.create');
+
+Route::get('/doctors/{doctor}','DoctorController@show')->name('doctors.show');
+
+Route::post('/doctors', 'DoctorController@store')->name('doctors.store');
+
+Route::delete('/doctors/{doctor}', 'DoctorController@destroy')->name('doctors.destroy');
+
+Route::get('/doctors/{doctor}/edit', 'DoctorController@edit')->name('doctors.edit');
+
+Route::put('/doctors/{doctor}', 'DoctorController@update')->name('doctors.update');
+
 
 });
 
 //=======Doctors Section ==========
 // all Doctors routes under doctors cortrol starts with 'doctors'
-Route::group(['prefix' => 'doctors'], function () {
+Route::group(['prefix' => 'pharmacy'], function () {
     //show doctors login page
     Route::get('/login', 'doctors\DoctorLoginController@index')->name('doctorLogin.index');
     //doctor login  
     Route::post('/login', 'doctors\DoctorLoginController@login');
 });
-Route::group(['prefix' => 'doctors','middleware'=>'DoctorLogin'], function () {
+Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     //doctor Admin panel
-    Route::get('/','DoctorController@index')->name('doctors.index');
+    Route::get('/','doctors\DoctorAdminController@index')->name('pharmacy.index');
+    //show doctors in pharmacy
+    Route::get('/doctors','doctors\DoctorController@index')->name('doctor.index');
+    //create doctor
+    Route::get('/doctors/create','doctors\DoctorController@create')->name('doctor.create');
+    Route::post('/doctors/create','doctors\DoctorController@store');
+    //delete
+    Route::delete('/doctors/destroy/{id}', 'doctors\DoctorController@destroy')->name('doctor.destroy');
+
 });
 
-//=========admin's. doctor================
-
-Route::get('/admins/doctors', 'DoctorController@index')->name('doctors.index');
-
-Route::get('/admins/doctors/create', 'DoctorController@create')->name('doctors.create');
-
-Route::get('/admins/doctors/{doctor}','DoctorController@show')->name('doctors.show');
-
-Route::post('/admins/doctors', 'DoctorController@store')->name('doctors.store');
-
-Route::delete('/admins/doctors/{doctor}', 'DoctorController@destroy')->name('doctors.destroy');
-
-Route::get('/admins/doctors/{doctor}/edit', 'DoctorController@edit')->name('doctors.edit');
-
-Route::put('/admins/doctors/{doctor}', 'DoctorController@update')->name('doctors.update');
 
