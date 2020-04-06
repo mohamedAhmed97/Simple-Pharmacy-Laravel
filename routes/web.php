@@ -73,10 +73,6 @@ Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
 
 
 });
-
-
-
-<<<<<<< HEAD
 //=======Doctors Section ==========
 // all Doctors routes under doctors cortrol starts with 'doctors'
 Route::group(['prefix' => 'doctors'], function () {
@@ -90,5 +86,3 @@ Route::group(['prefix' => 'doctors','middleware'=>'DoctorLogin'], function () {
     //doctor Admin panel
     Route::get('/','DoctorController@index')->name('doctors.index');
 });
-=======
->>>>>>> ec57c7bf858350480a396bae597d4a54800c7b13
