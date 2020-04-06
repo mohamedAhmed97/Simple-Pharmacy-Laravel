@@ -55,13 +55,15 @@
             </ul>
           </li> ​
           <li class="nav-item has-treeview">
+          @role('pharmacy owner', 'doctor')
             <a href="#" class="nav-link">
               <i class="fas fa-prescription-bottle-alt nav-icon text-danger"></i>
               <p class="text-danger font-weight-bold">
-                 Pharmacies
+                 Your Pharmacy
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            @endrole
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
@@ -127,10 +129,30 @@
               </li>
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
+                  <i class="fas fa-history nav-icon text-success"></i>
+                  <p class="text-success font-weight-bold">Orders</p>
+                </a>
+              </li> 
+
+              @role('pharmacy owner', 'doctor')
+              <li class="nav-item">
+                <a href="pages/layout/top-nav.html" class="nav-link">
+                  <i class="fas fa-history nav-icon text-success"></i>
+                  <p class="text-success font-weight-bold">History</p>
+                </a>
+              </li> 
+              @endrole
+
+              @role('pharmacy owner', 'doctor')
+              <li class="nav-item">
+                <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="fas fa-hand-holding-usd nav-icon text-success"></i>
                   <p class="text-success font-weight-bold">Revenue</p>
                 </a>
               </li> 
+              @endrole
+
+
           </li>
         </ul>
       </nav>
