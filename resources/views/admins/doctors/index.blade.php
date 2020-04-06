@@ -1,18 +1,18 @@
-@extends('layouts.app')
+@extends('admins.sidebar')
 
 @section('content')
+<div class="content-wrapper">
         <h1> Here we gonna make a table </h1>
         <h2> Do you want to add a new Doctor to your pharmacy? </h2>
         <div class="container m-3">
         <table class="table">
             <thead>
-                 <tr>
-                <th scope="col"><h4>Name</h4></th>
-                <th scope="col"><h5>View details</h5></th> 
-                <th scope="col"><h5>Update doctor data</h5></th>
-                <th scope="col"><h5>Delete a doctor</h5></th>
-      
-                 </tr>
+                <tr>
+                    <th scope="col"><Name</th>
+                    <th scope="col">View details</th> 
+                    <th scope="col">Update doctor data</th>
+                    <th scope="col">Delete a doctor</th>
+                </tr>
             </thead>
                 <button class="btn btn-success mb-5"><a href="/admins/doctors/create"><h3>Add Doctor</h3></a></button>
                 <tbody>
@@ -33,4 +33,5 @@
              @endforeach
         </table>
         </div>
-        @endsection
+    </div>    
+@endsection
