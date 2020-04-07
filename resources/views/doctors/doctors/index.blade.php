@@ -1,0 +1,78 @@
+@extends('layouts.doctor')
+@section('content')
+@if(Session::has('success-message'))
+    <div class="alert alert-success"> 
+        <button type="button" 
+            class="close" 
+            data-dismiss="alert" 
+            aria-hidden="true">&times;</button>
+        {!! session()->get('success-message') !!} 
+    </div>
+@endif
+<div class="card">
+    <div class="card-header">
+      Doctors
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered data-table m-1 " id="medicines_table">
+            <thead class="m-3">
+            <a class="btn btn-success font-weight-bold p-2 m-3"          
+             href="{{route('doctor.create')}}">Add Doctor</a>
+                 <tr>
+                   <th>Name</th>
+                   <th>Email</th>
+                   <th>Active</th>
+                   <th>Image</th>
+                   <th>Edit</th>
+                   <th>Delete</th>
+                 
+                 </tr>
+                 </thead>
+                 <tbody >
+                 @foreach($doctors as $doctor)
+                 <tr class="p-2">
+                 <td class="p-2">{{$doctor->name}}</td>
+                 <td class="p-2">{{$doctor->email}}</td>
+                 <td class="p-2">
+                  <div class="custom-control custom-switch">
+                    @if ($doctor->is_active)
+                    <input type="checkbox" class="custom-control-input" checked id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Active</label>
+                    @else
+                    <input type="checkbox" class="custom-control-input"  id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Disactive</label>
+                    @endif
+                  </div>
+                  
+                </td>
+                 <td class="p-2"><img src="{{asset('storage/doctors/'.$doctor->dr_avatar)}}" width="70px" height="70px"</td>
+                 <td class="p-2"><a class="btn btn-info" href="#" role="button">Edit</a></td>
+                 <td class="p-2">
+                     <button class="deleteDoctor" data-id="{{ $doctor->id }}" data-token="{{csrf_token()}}">Delete Record</button>
+                 </td>
+                 </tr>
+                 @endforeach
+     
+                 </tbody>
+               </table>
+    </div>
+  </div>
+  @push('head')
+
+<script>
+$('#medicines_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: `{!! route('medicines.index') !!}`,
+    columns: [
+              {data: 'name', name: 'name'},
+              {data: 'email', name: 'email'},
+              {data: 'name', name: 'name'},
+              {data: 'name', name: 'name'},
+              {data: 'name', name: 'name'},
+              {data: 'id', name: 'id' , orderable: true, searchable: true},
+            ]});
+    
+</script>
+@endpush
+@endsection
