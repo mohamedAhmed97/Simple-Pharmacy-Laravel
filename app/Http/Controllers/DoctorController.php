@@ -7,11 +7,10 @@ use App\Doctor;
 
 class DoctorController extends Controller
 {
+
     public function index()
     {
         $doctors= Doctor::all();
-        
-        //dd($doctors);
         return view('admins.doctors.index', ["doctors"=>$doctors]);
     }
     public function show()
@@ -72,7 +71,10 @@ class DoctorController extends Controller
         return redirect()->route('doctors.index');
     }
     
+<<<<<<< HEAD
+=======
 
+>>>>>>> 007dedca35eabb2dcc5120b3bf2d3f2ae6ce533a
     
 }
 

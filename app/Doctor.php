@@ -22,7 +22,8 @@ class Doctor extends Authenticatable
         'password',
         'dr_national_id',
         'pharmacy_id',
-        'is_owner'
+        'is_owner',
+        'dr_avatar'
     ];
      /**
      * The attributes that should be hidden for arrays.
@@ -41,4 +42,8 @@ class Doctor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function pharmacies()
+    {
+       return $this->belongsTo('App\Pharmacy');
+    }
 }
