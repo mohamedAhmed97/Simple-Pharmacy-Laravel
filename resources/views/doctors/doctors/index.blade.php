@@ -44,7 +44,7 @@
                   
                 </td>
                  <td class="p-2"><img src="{{asset('storage/doctors/'.$doctor->dr_avatar)}}" width="70px" height="70px"</td>
-                 <td class="p-2"><a class="btn btn-info" href="#" role="button">Edit</a></td>
+                <td class="p-2"><a class="btn btn-info" href="{{route('doctor.edit',$doctor->id)}}" role="button">Edit</a></td>
                  <td class="p-2">
                      <button class="deleteDoctor btn btn-danger" data-id="{{ $doctor->id }}" data-token="{{csrf_token()}}">Delete</button>
                  </td>

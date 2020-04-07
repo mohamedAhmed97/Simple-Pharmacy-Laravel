@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDoctor extends FormRequest
+class UpdateDoctor extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,12 @@ class StoreDoctor extends FormRequest
     public function rules()
     {
         return [
-           
             "avatar"=>' mimes:jpeg,jpg|required',
             "name"=>'required|max:255',
-            "email"=>'email|required|unique:doctors',
+            "email"=>'email|required',
             "password"=>'required|confirmed',
             "nationalID"=>'required|numeric'
+
         ];
     }
 
@@ -39,7 +39,6 @@ class StoreDoctor extends FormRequest
         return [
             "avatar.mimes"=>'You Should Upload Picture',
             "avatar.required"=>'You Should Upload Picture',
-            "email.unique"=>'The Email Aleardy Existing',
             "nationalID.numeric"=>'Please Enter Current ID'
         ];
     }

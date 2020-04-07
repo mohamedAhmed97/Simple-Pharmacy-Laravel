@@ -86,7 +86,9 @@ Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     Route::post('/doctors/create','doctors\DoctorController@store');
     //delete
     Route::delete('/doctors/destroy/{id}', 'doctors\DoctorController@destroy')->name('doctor.destroy');
-
+    //update doctor
+    Route::get('/doctors/{doctor}/edit', 'doctors\DoctorController@edit')->name('doctor.edit');
+    Route::put('/doctors/{doctor}', 'doctors\DoctorController@update')->name('doctor.update');
 });
 
 

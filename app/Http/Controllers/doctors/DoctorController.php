@@ -9,6 +9,7 @@ use Auth;
 use Hash;
 use UxWeb\SweetAlert\SweetAlert;
 use App\Http\Requests\StoreDoctor;
+use App\Http\Requests\UpdateDoctor;
 class DoctorController extends Controller
 {   
     
@@ -52,7 +53,6 @@ class DoctorController extends Controller
             'dr_avatar'=>$Doctor_avatar_name,
             'dr_national_id'=>$request->nationalID,
             'pharmacy_id'=>DoctorController::CurrentUser()->pharmacy_id,
-
         ]);
         alert()->success('Doctor Added.', 'Operation Done!');
         return redirect()->route('doctor.index');
@@ -60,28 +60,55 @@ class DoctorController extends Controller
 
     public function destroy($id)
     {
-        Doctor::find($id)->delete();    
+        
+       $doctor=Doctor::find($id);
+        //delete image
+        $postion=storage_path().'/app/public/doctors/'.$doctor->dr_avatar;
+        //Storage::delete($postion);
+        unlink($postion); 
+        //delete
+       $doctor->delete();    
     }
 
 
-    public function edit()
+    public function edit($doctor)
     {
-        $request = request();
-        $doctorId = $request->doctor;
-        $doctor = Doctor::find($doctorId);  
+        $doctordata = Doctor::find($doctor); 
         return view('doctors.doctors.edit',[
-            'doctor' => $doctor
+            'doctor' => $doctordata
         ]);
     }
-    public function update($doctorId)
+    public function update(UpdateDoctor $request,$doctor)
     {
-        $request=request();
         
+       //get doctor
+       $doctordata=Doctor::find($doctor);
+       //delete image
+       $postion=storage_path().'/app/public/doctors/'.$doctordata->dr_avatar;
+       //delete
+       unlink($postion);
         
-        Doctor::where('id', $doctorId)->first()->update(request()->all());
+       //pic
+       $pic=$request->file('avatar');
+       //name of picture
+       $Doctor_avatar_name=time().$pic->getClientOriginalName();
+       
+       //upload file
+       $path = $pic->storeAs(
+           'public/doctors',$Doctor_avatar_name); 
 
-
-        return redirect()->route('doctors.index');
+       //update
+       $doctordata->update([
+            'name' => $request->name, 
+            'password' => Hash::make($request->password),
+            'email'=>$request->email,
+            'dr_avatar'=>$Doctor_avatar_name,
+            'dr_national_id'=>$request->nationalID,
+            'pharmacy_id'=>DoctorController::CurrentUser()->pharmacy_id,
+           ]);
+           
+        alert()->info('Updated', 'Doctor Updated'); 
+        return redirect()->route('doctor.index');
     }
 
 
