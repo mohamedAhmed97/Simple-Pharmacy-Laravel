@@ -69,7 +69,7 @@ class DoctorController extends Controller
         $request = request();
         $doctorId = $request->doctor;
         $doctor = Doctor::find($doctorId);  
-        return view('admins.doctors.edit',[
+        return view('doctors.doctors.edit',[
             'doctor' => $doctor
         ]);
     }

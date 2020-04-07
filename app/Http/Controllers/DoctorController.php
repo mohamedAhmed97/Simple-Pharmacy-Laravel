@@ -7,10 +7,11 @@ use App\Doctor;
 
 class DoctorController extends Controller
 {
-
     public function index()
     {
         $doctors= Doctor::all();
+        
+        //dd($doctors);
         return view('admins.doctors.index', ["doctors"=>$doctors]);
     }
     public function show()
