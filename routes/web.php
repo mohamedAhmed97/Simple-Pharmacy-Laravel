@@ -75,7 +75,18 @@ Route::group(['prefix' => 'pharmacy'], function () {
     //doctor login  
     Route::post('/login', 'doctors\DoctorLoginController@login');
 });
+
 Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     //doctor Admin panel
-    Route::get('/','DoctorController@index')->name('doctors.index');
+    Route::get('/','doctors\DoctorAdminController@index')->name('pharmacy.index');
+    //show doctors in pharmacy
+    Route::get('/doctors','doctors\DoctorController@index')->name('doctor.index');
+    //create doctor
+    Route::get('/doctors/create','doctors\DoctorController@create')->name('doctor.create');
+    Route::post('/doctors/create','doctors\DoctorController@store');
+    //delete
+    Route::delete('/doctors/destroy/{id}', 'doctors\DoctorController@destroy')->name('doctor.destroy');
+
 });
+
+

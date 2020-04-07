@@ -6,7 +6,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="wrapper">
      <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 navbar-full" >
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <!-- Navbar -->
     <a href="index3.html" class="brand-link">
@@ -63,7 +63,7 @@
             <li class="nav-item">
                 <a href="/admins/pharmacies" class="nav-link">
                   <i class="fas fa-prescription-bottle-alt nav-icon text-white"></i>
-                  <p class="text-white font-weight-bold">View Pharmacy Section</p>
+                  <p class="text-white font-weight-bold">View Pharmacies</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -85,7 +85,7 @@
             <li class="nav-item">
                 <a href="/admins/doctors" class="nav-link">
                   <i class="fas fa-stethoscope nav-icon text-white"></i>
-                  <p class="text-white font-weight-bold">View Doctor Section</p>
+                  <p class="text-white font-weight-bold">View Doctors</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
@@ -151,7 +151,7 @@
     <!-- /.sidebar -->
   </aside>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row mx-auto text-center">
       <div class="col-sm-6 m-3">
             <h1 class="m-0 text-dark p-1">Admins</h1>
@@ -165,6 +165,7 @@
         </nav>
       </div><!-- /.col -->
     </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
+  </div><!-- /.container -->
+</div>
           
 @endsection
