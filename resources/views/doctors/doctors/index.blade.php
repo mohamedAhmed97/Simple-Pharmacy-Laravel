@@ -55,22 +55,20 @@
                </table>
     </div>
   </div>
-  @push('head')
+@endsection
 
+@push('head')
 <script>
 $('#medicines_table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: `{!! route('medicines.index') !!}`,
+        ajax: `{!! route('doctor.index') !!}`,
     columns: [
               {data: 'name', name: 'name'},
               {data: 'email', name: 'email'},
-              {data: 'name', name: 'name'},
-              {data: 'name', name: 'name'},
-              {data: 'name', name: 'name'},
+              {data: 'is_active', name: 'is_active'},
               {data: 'id', name: 'id' , orderable: true, searchable: true},
             ]});
     
 </script>
 @endpush
-@endsection

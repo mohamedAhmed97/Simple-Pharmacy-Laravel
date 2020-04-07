@@ -8,7 +8,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col"><Name</th>
+                    <th scope="col">Name</th>
                     <th scope="col">View details</th> 
                     <th scope="col">Update doctor data</th>
                     <th scope="col">Delete a doctor</th>

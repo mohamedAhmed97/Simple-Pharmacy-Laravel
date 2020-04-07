@@ -25,7 +25,10 @@
      crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    
   </head>
+ 
 
 <body >
     <div class="wrapper">
@@ -270,5 +273,16 @@
 src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="{{asset('/scripts/doctor/deleteDoctor.js')}}"></script>
+<script type="text/javascript" 
+src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+<script>
+    //dataTables plugin 
+  $(document).ready( function () {
+    $('table').DataTable();
+    $(".medicine_name").select2({
+        tags: true
+    });
+  } );
+</script>
 </body>
 </html>

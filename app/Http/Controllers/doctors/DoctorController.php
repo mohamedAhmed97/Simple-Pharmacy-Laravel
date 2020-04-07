@@ -10,6 +10,7 @@ use Hash;
 use UxWeb\SweetAlert\SweetAlert;
 use App\Http\Requests\StoreDoctor;
 use App\Http\Requests\UpdateDoctor;
+use Yajra\DataTables\Facades\DataTables;
 class DoctorController extends Controller
 {   
     
@@ -21,7 +22,13 @@ class DoctorController extends Controller
         //get doctors
         $doctors=Doctor::where('id','!=',$user->id)
         ->where('pharmacy_id',$user->pharmacy_id)->get();
-        return view('doctors.doctors.index')->with('doctors',$doctors);
+        
+        return view('doctors.doctors.index',[
+            'doctors' => $doctors,
+             DataTables::of(Doctor::query())->make(true)
+        ]);
+        
+       
     }
     public function show()
     {
