@@ -70,11 +70,5 @@ class DoctorController extends Controller
 
         return redirect()->route('doctors.index');
     }
-    
-<<<<<<< HEAD
-=======
-
->>>>>>> 007dedca35eabb2dcc5120b3bf2d3f2ae6ce533a
-    
 }
 
