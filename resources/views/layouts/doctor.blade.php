@@ -24,7 +24,8 @@
      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
      crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
-</head>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
 
 <body >
     <div class="wrapper">
@@ -207,6 +208,7 @@
     
         <!-- Main content -->
         <section class="content">
+            @include('sweet::alert')
             @yield('content')
         <!-- /.content -->
       </div>
@@ -268,7 +270,5 @@
 src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="{{asset('/scripts/doctor/deleteDoctor.js')}}"></script>
-
-
 </body>
 </html>

@@ -1,14 +1,12 @@
 @extends('layouts.doctor')
 @section('content')
-@if(Session::has('success-message'))
-    <div class="alert alert-success"> 
-        <button type="button" 
-            class="close" 
-            data-dismiss="alert" 
-            aria-hidden="true">&times;</button>
-        {!! session()->get('success-message') !!} 
-    </div>
+
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
 @endif
+
 <div class="card">
     <div class="card-header">
       Doctors
@@ -30,7 +28,7 @@
                  </thead>
                  <tbody >
                  @foreach($doctors as $doctor)
-                 <tr class="p-2">
+                 <tr class="p-2" id="data{{$doctor->id}}">
                  <td class="p-2">{{$doctor->name}}</td>
                  <td class="p-2">{{$doctor->email}}</td>
                  <td class="p-2">
@@ -48,7 +46,7 @@
                  <td class="p-2"><img src="{{asset('storage/doctors/'.$doctor->dr_avatar)}}" width="70px" height="70px"</td>
                  <td class="p-2"><a class="btn btn-info" href="#" role="button">Edit</a></td>
                  <td class="p-2">
-                     <button class="deleteDoctor" data-id="{{ $doctor->id }}" data-token="{{csrf_token()}}">Delete Record</button>
+                     <button class="deleteDoctor btn btn-danger" data-id="{{ $doctor->id }}" data-token="{{csrf_token()}}">Delete</button>
                  </td>
                  </tr>
                  @endforeach

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Doctor;
 use Auth;
 use Hash;
+use UxWeb\SweetAlert\SweetAlert;
 use App\Http\Requests\StoreDoctor;
 class DoctorController extends Controller
 {   
@@ -19,7 +20,6 @@ class DoctorController extends Controller
         //get doctors
         $doctors=Doctor::where('id','!=',$user->id)
         ->where('pharmacy_id',$user->pharmacy_id)->get();
-        
         return view('doctors.doctors.index')->with('doctors',$doctors);
     }
     public function show()
@@ -28,7 +28,7 @@ class DoctorController extends Controller
         $doctorId= $request->doctor;
 
         $doctor= Doctor::find($doctorId);
-      
+       
         return view('admins.doctors.show', ["doctor" => $doctor]);
     }
     public function create()
@@ -54,17 +54,13 @@ class DoctorController extends Controller
             'pharmacy_id'=>DoctorController::CurrentUser()->pharmacy_id,
 
         ]);
-        return redirect()->route('doctor.index')
-        ->with('success-message', 'Doctor Added');
+        alert()->success('Doctor Added.', 'Operation Done!');
+        return redirect()->route('doctor.index');
     }
 
     public function destroy($id)
     {
-        Doctor::find($id)->delete();
-        /* return redirect()->route('doctors.index'); */
-        return response()->json([
-            'message' => 'Data deleted successfully!'
-          ]);
+        Doctor::find($id)->delete();    
     }
 
 
@@ -81,7 +77,7 @@ class DoctorController extends Controller
     {
         $request=request();
         
-
+        
         Doctor::where('id', $doctorId)->first()->update(request()->all());
 
 
