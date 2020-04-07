@@ -75,6 +75,7 @@ Route::group(['prefix' => 'pharmacy'], function () {
     //doctor login  
     Route::post('/login', 'doctors\DoctorLoginController@login');
 });
+
 Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     //doctor Admin panel
     Route::get('/','doctors\DoctorAdminController@index')->name('pharmacy.index');
