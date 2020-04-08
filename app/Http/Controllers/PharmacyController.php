@@ -32,7 +32,7 @@ class PharmacyController extends Controller
         $request = request();
         $pharmacyId = $request->pharmacy;
         $pharmacy = Pharmacy::find($pharmacyId);
-        $owner = Doctor::find($pharmacyId);
+        $owner = Doctor::where('pharmacy_id')->where('is_owner' , 1)->first();
         return view('admins.pharmacies.show',[
             'pharmacy' => $pharmacy,
             'owner' =>$owner
@@ -93,10 +93,11 @@ class PharmacyController extends Controller
         $request = request();
         $pharmacyId = $request->pharmacy;
         $pharmacy = Pharmacy::find($pharmacyId);
-        $owner = Doctor::find($pharmacyId);
+        $owner = Doctor::where('pharmacy_id' , $pharmacyId)->where('is_owner' , 1)->first();
         $areas=Area::all();
         
-        return view('admins.pharmacy.edit',[
+        
+        return view('admins.pharmacies.edit',[
             'pharmacy' => $pharmacy,
             'owner' => $owner,
             'areas' => $areas

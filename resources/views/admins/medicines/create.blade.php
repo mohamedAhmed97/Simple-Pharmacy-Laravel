@@ -40,6 +40,7 @@
     <div class="form-group">
       <label class="m-2 bg-primary bg-dark text-light rounded-pill p-2 font-weight-bold" 
       for="exampleInputPassword1">Price</label>
+      <span>Enter the price in cents and it will be shown as dollars</span>
       <input name="medicine_price" type="number" class="form-control" 
       aria-describedby="emailHelp">
     </div>

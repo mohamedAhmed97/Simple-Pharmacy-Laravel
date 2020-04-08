@@ -12,9 +12,9 @@ class Pharmacy extends Model
         'ph_avatar' 
     ];
 
-    public function doctor()
+    public function doctors()
     {
-        return $this->belongsTo('App\Doctor');
+        return $this->hasMany('App\Doctor');
     }
 
     public function area()

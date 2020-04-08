@@ -11,7 +11,7 @@
         </thead>
         <tbody class="border border-primary">
             <tr>
-              <th class=" border border-dark text-info">Title:</th>
+              <th class=" border border-dark text-info">Name:</th>
                   <td class=" border border-dark text-info">
                   {{ $medicine->medicine_name }}</td>
             </tr>
@@ -21,12 +21,12 @@
                     {{ $medicine->medicine_quantity }}</td>
             </tr>
             <tr>
-              <th class=" border border-dark text-info">Name:</th>
+              <th class=" border border-dark text-info">Type:</th>
                 <td class=" border border-dark text-info">
                     {{ $medicine->medicine_type }}</td>
             </tr>
             <tr>
-              <th class=" border border-dark text-info">Name:</th>
+              <th class=" border border-dark text-info">Price:</th>
                 <td class=" border border-dark text-info">
                   @money($medicine->medicine_price, 'USD')</td>
             </tr>

@@ -1,16 +1,11 @@
 @extends('admins.sidebar')
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> 42f5c6bba8982d0efb4afd7f3db1012ebbc6f7ff
 @section('content')
 <div class="content-wrapper">
-     <div class="card">
+    <div class="card m-3 p-2">
           <div class="card-header border-transparent">
                 <h3 class="card-title font-weight-bold">Medicines</h3>
           </div>
-              <div class="card-body">
+            <div class="card-body">
                 <div class="table-responsive m-2">
                   <table class="table table-bordered data-table m-1 " id="medicines_table">
                     <thead class="m-3">
@@ -57,25 +52,11 @@
                     </td> 
                     </tr>
                     @endforeach
-                    
                     </tbody>
                   </table>
-                </div>
-              </div>
-                <!-- /.table-responsive -->
-              </div>
-             
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-             
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+                </div>  <!-- /.table-responsive -->
+              </div>    
+    </div>           
 </div>
 @endsection
 @push('head')

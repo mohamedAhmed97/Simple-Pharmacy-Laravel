@@ -18,7 +18,7 @@ class DoctorLoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::guard('doctor')-> attempt($credentials)) {
-            return redirect()->route('doctors.index');
+            return redirect()->route('pharmacy.index');
         }
         else
         {
