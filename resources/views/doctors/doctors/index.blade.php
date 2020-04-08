@@ -34,17 +34,17 @@
                  <td class="p-2">
                   <div class="custom-control custom-switch">
                     @if ($doctor->is_active)
-                    <input type="checkbox" class="custom-control-input" checked id="customSwitch{{$doctor->id}}">
-                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Active</label>
+                   <input type="checkbox"  onchange="activition({{$doctor->id}})" data-token="{{csrf_token()}}"  class="custom-control-input" checked id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" id="active{{$doctor->id}}" for="customSwitch{{$doctor->id}}">Active</label>
                     @else
-                    <input type="checkbox" class="custom-control-input"  id="customSwitch{{$doctor->id}}">
-                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Disactive</label>
+                    <input type="checkbox"  data-token="{{csrf_token()}}" onchange="activition({{$doctor->id}})" class="custom-control-input"  id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" id="active{{$doctor->id}}" for="customSwitch{{$doctor->id}}">Disactive</label>
                     @endif
                   </div>
                   
                 </td>
                  <td class="p-2"><img src="{{asset('storage/doctors/'.$doctor->dr_avatar)}}" width="70px" height="70px"</td>
-                 <td class="p-2"><a class="btn btn-info" href="#" role="button">Edit</a></td>
+                <td class="p-2"><a class="btn btn-info" href="{{route('doctor.edit',$doctor->id)}}" role="button">Edit</a></td>
                  <td class="p-2">
                      <button class="deleteDoctor btn btn-danger" data-id="{{ $doctor->id }}" data-token="{{csrf_token()}}">Delete</button>
                  </td>
@@ -55,22 +55,20 @@
                </table>
     </div>
   </div>
-  @push('head')
+@endsection
 
+@push('head')
 <script>
 $('#medicines_table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: `{!! route('medicines.index') !!}`,
+        ajax: `{!! route('doctor.index') !!}`,
     columns: [
               {data: 'name', name: 'name'},
               {data: 'email', name: 'email'},
-              {data: 'name', name: 'name'},
-              {data: 'name', name: 'name'},
-              {data: 'name', name: 'name'},
+              {data: 'is_active', name: 'is_active'},
               {data: 'id', name: 'id' , orderable: true, searchable: true},
             ]});
     
 </script>
 @endpush
-@endsection
