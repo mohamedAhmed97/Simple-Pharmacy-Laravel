@@ -15,7 +15,7 @@ class CreateAdminCommand extends Command
 {
 
     use ValidatesInput;
-//=======validation to check that the email format is right========
+//=======validation to check that the email format is right & password length========
     public function rules()
     {
         return [
@@ -23,6 +23,19 @@ class CreateAdminCommand extends Command
             'password' => 'min:6|required'
         ];
     }
+//==========overrided laravel validation error messages===============
+    public function messages()
+    {
+        return [
+            'email.required' => 'The email is required, you have to enter it!',
+            'email.unique' => 'The email is unique, you have to choose a different email!',
+            'email.regex' => 'You have to enter a valid email 
+             Ex: mayarelabbasy2016@gmail.com',
+            'password.min' => 'The password has minimum of 6 chars',
+            'password.required' => 'The password is required, you have to enter it!',     
+        ] ;
+    }
+
     /**
      * The name and signature of the console command.
      *
