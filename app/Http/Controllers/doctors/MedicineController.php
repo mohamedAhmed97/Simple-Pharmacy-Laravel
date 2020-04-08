@@ -27,19 +27,19 @@ class MedicineController extends Controller
     }
 
     public function store(Request $request){
-        //dd($request->$data);
         //pharmacy id ->currnt user
         $phar_id=Auth::guard('doctor')->user()->pharmacy_id;
         // //get pharmacy
         $pharmacy=Pharmacy::find($phar_id);
         $medicines=$request->check;
+
         foreach($medicines as $key=>$medicine)
         {
             $data="quantity".$request->check[$key]; 
             //get medicine
-            $medicine=Medicine::find(1);  
+            $medicinedata=Medicine::find($medicine);  
             $quantity=$request->$data;
-            $pharmacy->medicines()->attach($medicine ,['quantity'=>$quantity]);
+            $pharmacy->medicines()->attach($medicinedata ,['quantity'=>$quantity]);
         }
         alert()->success('medicine  Added.', 'Operation Done!');
         return redirect()->route('medicines.index');
