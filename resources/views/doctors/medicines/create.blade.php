@@ -1,58 +1,73 @@
-@extends('layouts.app')
-
+@extends('admins.sidebar')
 @section('content')
-@if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-  @endif
-<form method="POST"class="m-5 border border-dark p-2 bg-info" 
-    action="{{route('medicines.store')}}">
-    @csrf
-    <div class="form-group">
-      <label class="m-2 bg-dark text-light rounded-pill p-2 font-weight-bold">
-      Medicine Name</label>
-      <input name="medicine_name" type="text" 
-      class="form-control" aria-describedby="emailHelp">
-      <!-- <select class="form-control" >
-      @foreach ($medicines as $medicine)
-        <option  name="medicine_name" class="medicine_name" value="{{$medicine->id}}">
-          {{ $medicine->medicine_name }}</option>
-      @endforeach
-      </select> -->
-   
-    <div class="form-group">
-      <label class="m-2 bg-primary bg-dark text-light rounded-pill p-2 font-weight-bold" 
-      for="exampleInputPassword1">Quantity</label>
-      <input name="medicine_quantity" type="number" class="form-control" 
-      aria-describedby="emailHelp">
-    </div>
-    <div class="form-group">
-      <label class="m-2 bg-primary bg-dark text-light rounded-pill p-2 font-weight-bold"
-       for="exampleInputPassword1">Type</label>
-       <input name="medicine_type" type="text" class="form-control" 
-       aria-describedby="emailHelp">
-       
-    <div class="form-group">
-      <label class="m-2 bg-primary bg-dark text-light rounded-pill p-2 font-weight-bold" 
-      for="exampleInputPassword1">Price</label>
-      <span>Enter the price in cents and it will be shown as dollars</span>
-      <input name="medicine_price" type="number" class="form-control" 
-      aria-describedby="emailHelp">
-    </div>
-      
-     
+<div class="content-wrapper">
+    <div class="card m-3 p-2">
+          <div class="card-header border-transparent">
+                <h3 class="card-title font-weight-bold">Medicines</h3>
+          </div>
+            <div class="card-body">
+                <div class="table-responsive m-2">
+                  <form method="POST" action="{{route('medicines.store')}}">  
+                    @csrf
+                  <table class="table table-bordered data-table m-1 " id="medicines_table">
+                    <thead class="m-3">
+                    <tr>
+                      <th>Medicine Name</th>
+                      <th>Quantity</th>
+                      <th>Type</th>
+                      <th>Price</th>
+                      <th>Required</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                
+                    @foreach($medicines as $medicine)
+                    <tr class="p-2">
+                      <td class="p-2">{{ $medicine->medicine_name }}</a></td>
+                      <td>  <input type="text" name="quantity{{$medicine->id}}"></td>
+                      <td><span class="badge badge-success">
+                        {{ $medicine->medicine_type }}</span></td>
+                      <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">
+                      @money($medicine->medicine_price, 'USD')
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-check">
+                          <input type="checkbox" name="check[]" class="form-check-input" value="{{$medicine->id}}">
+                          <label class="form-check-label" for="exampleCheck1"></label>
+                        </div>
+                          </td>
+                    </tr>
+                    @endforeach
+                  
+                </tbody>
+                </table>
+                <button type="submit" class="btn btn-primary">Submit</button>   
+                </form>
+                </div>  <!-- /.table-responsive -->
+              </div>    
+    </div>           
+</div>
 
-
-    <button type="submit" class="btn btn-success border border-dark font-weight-bold 
-            rounded-pill p-3 m-2">
-      Create</button>
-  </form>
-
-  
-  
 @endsection
+@push('head')
+
+<script>
+$('#medicines_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: `{!! route('medicines.index') !!}`,
+    columns: [
+              {data: 'id', name: 'id'},
+              {data: 'medicine_name', name: 'medicine_name'},
+              {data: 'medicine_quantity', name: 'medicine_quantity'},
+              {data: 'medicine_type', name: 'medicine_type'},
+              {data: 'medicine_price', name: 'medicine_price'},
+              {data: 'id', name: 'id' , orderable: true, searchable: true},
+            ]});
+    
+</script>
+
+@endpush
+

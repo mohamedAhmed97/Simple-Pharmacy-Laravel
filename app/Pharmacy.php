@@ -22,8 +22,8 @@ class Pharmacy extends Model
         return $this->belongsTo('App\Area');
     }
 
-//     public function medicines()
-//     {
-//         return $this->belongsToMany('App\Medicine')->withPivot('quantity');
-//     }
+    public function medicines()
+    {
+        return $this->belongsToMany('App\Medicine')->withPivot('quantity');
+    }
 }

@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
+@endif
 <div class="bg-info p-2 m-4">
     <table class="table">
         <thead class="thead-primary">

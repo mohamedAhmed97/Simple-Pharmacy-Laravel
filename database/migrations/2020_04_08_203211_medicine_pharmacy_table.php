@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMedicinePharmaciesTable extends Migration
+class MedicinePharmacyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMedicinePharmaciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('medicine_pharmacies', function (Blueprint $table) {
+        Schema::create('medicine_pharmacy', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
             $table->foreignId('medicine_id')->references('id')->on('medicines')->onDelete('cascade');
@@ -29,6 +29,6 @@ class CreateMedicinePharmaciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medicine_pharmacies');
+        Schema::dropIfExists('medicine_pharmacy');
     }
 }

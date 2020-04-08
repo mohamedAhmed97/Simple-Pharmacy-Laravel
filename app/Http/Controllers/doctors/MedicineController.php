@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Medicine;
 use App\Pharmacy;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\MedicineRequest;
-
+use Auth;
 class MedicineController extends Controller
 {
     public function index(){
@@ -19,32 +20,28 @@ class MedicineController extends Controller
     }
 
     public function create(){
-        return view('doctors.medicines.create', [
+        return view('doctors.medicines.create',[
             'medicines' => Medicine::all(),
+             DataTables::of(Medicine::query())->make(true)
         ]);
     }
 
     public function store(Request $request){
-        Medicine::create([
-            'medicine_name' => $request->medicine_name,
-            'medicine_quantity' =>  $request->medicine_quantity,
-            'medicine_type' =>  $request->medicine_type,
-            'medicine_price' =>  $request->medicine_price,
-        ]);
-
-         //post request
-        // //pharmacy id ->currnt user
-        // $phar_id=Auth::guard('doctor')->user()->pharmacy_id;
+        //dd($request->$data);
+        //pharmacy id ->currnt user
+        $phar_id=Auth::guard('doctor')->user()->pharmacy_id;
         // //get pharmacy
-        // $pharmacy=Pharmacy::find($phar_id);
-        // //id -> request
-        // $id=$request->id;
-        // //get medicine
-        // $medicine=Medicine::find($id);
-        
-        // $pharmacy->medinies()->attach($medicine);
-
-       
+        $pharmacy=Pharmacy::find($phar_id);
+        $medicines=$request->check;
+        foreach($medicines as $key=>$medicine)
+        {
+            $data="quantity".$request->check[$key]; 
+            //get medicine
+            $medicine=Medicine::find(1);  
+            $quantity=$request->$data;
+            $pharmacy->medicines()->attach($medicine ,['quantity'=>$quantity]);
+        }
+        alert()->success('medicine  Added.', 'Operation Done!');
         return redirect()->route('medicines.index');
     }
 

@@ -1,5 +1,11 @@
 @extends('admins.sidebar')
 @section('content')
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
+@endif
+
 <div class="content-wrapper">
     <div class="card m-3 p-2">
           <div class="card-header border-transparent">
