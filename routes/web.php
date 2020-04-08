@@ -91,6 +91,17 @@ Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     Route::put('/doctors/{doctor}', 'doctors\DoctorController@update')->name('doctor.update');
     //doctor Activation
     Route::put('/doctors/{doctor}/activations', 'doctors\DoctorController@activation')->name('doctor.active');
+
+    //========= pharmacy medicine ==========
+
+    Route::GET('/medicines', 'doctors\MedicineController@index')->name('medicines.index');
+    Route::GET('/medicines/create', 'doctors\MedicineController@create')->name('medicines.create');
+    Route::post('/medicines', 'doctors\MedicineController@store')->name('medicines.store');
+    Route::GET('/medicines/{medicine}', 'doctors\MedicineController@show')->name('medicines.show');
+    Route::DELETE('/medicines/{medicine}', 'doctors\MedicineController@destroy')->name('medicines.destroy');
+    Route::GET('/medicines/{medicine}/edit', 'doctors\MedicineController@edit')->name('medicines.edit');
+    Route::PUT('/medicines/{medicine}', 'doctors\MedicineController@update')->name('medicines.update');
+
 });
 
 

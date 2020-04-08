@@ -12,6 +12,14 @@ class Medicine extends Model
         'medicine_type',
         'medicine_price',   
     ];
+
+
+    public function pharmacies()
+    {
+        return $this->belongsToMany('App\Pharmacy')->as('medicines_pharmacies')->withPivot('quantity');
+    }
+   
 }
+
 
 
