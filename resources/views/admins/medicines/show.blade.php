@@ -11,7 +11,7 @@
         </thead>
         <tbody class="border border-primary">
             <tr>
-              <th class=" border border-dark text-info">Title:</th>
+              <th class=" border border-dark text-info">Name:</th>
                   <td class=" border border-dark text-info">
                   {{ $medicine->medicine_name }}</td>
             </tr>
