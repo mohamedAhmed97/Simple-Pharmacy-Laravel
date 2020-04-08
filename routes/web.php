@@ -89,6 +89,8 @@ Route::group(['prefix' => 'pharmacy','middleware'=>'DoctorLogin'], function () {
     //update doctor
     Route::get('/doctors/{doctor}/edit', 'doctors\DoctorController@edit')->name('doctor.edit');
     Route::put('/doctors/{doctor}', 'doctors\DoctorController@update')->name('doctor.update');
+    //doctor Activation
+    Route::put('/doctors/{doctor}/activations', 'doctors\DoctorController@activation')->name('doctor.active');
 });
 
 

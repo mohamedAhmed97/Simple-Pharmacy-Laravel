@@ -118,6 +118,27 @@ class DoctorController extends Controller
         return redirect()->route('doctor.index');
     }
 
+    //activation Doctor
+    public function activation($doctor)
+    {
+        $doctordata=Doctor::find($doctor);  
+       
+        if($doctordata->is_active==1)
+        {
+            $doctordata->update([
+                'is_active'=> '0',
+                ]);
+               
+        }
+        else
+        {
+            $doctordata->update([
+               
+                'is_active'=> '1'
+                ]);
+        }
+       
+    }
 
     public function CurrentUser()
     {

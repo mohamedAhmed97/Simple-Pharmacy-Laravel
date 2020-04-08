@@ -34,11 +34,11 @@
                  <td class="p-2">
                   <div class="custom-control custom-switch">
                     @if ($doctor->is_active)
-                    <input type="checkbox" class="custom-control-input" checked id="customSwitch{{$doctor->id}}">
-                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Active</label>
+                   <input type="checkbox"  onchange="activition({{$doctor->id}})" data-token="{{csrf_token()}}"  class="custom-control-input" checked id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" id="active{{$doctor->id}}" for="customSwitch{{$doctor->id}}">Active</label>
                     @else
-                    <input type="checkbox" class="custom-control-input"  id="customSwitch{{$doctor->id}}">
-                    <label class="custom-control-label" for="customSwitch{{$doctor->id}}">Disactive</label>
+                    <input type="checkbox"  data-token="{{csrf_token()}}" onchange="activition({{$doctor->id}})" class="custom-control-input"  id="customSwitch{{$doctor->id}}">
+                    <label class="custom-control-label" id="active{{$doctor->id}}" for="customSwitch{{$doctor->id}}">Disactive</label>
                     @endif
                   </div>
                   

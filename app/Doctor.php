@@ -24,7 +24,8 @@ class Doctor extends Authenticatable
         'dr_national_id',
         'pharmacy_id',
         'is_owner',
-        'dr_avatar'
+        'dr_avatar',
+        'is_active'
     ];
      /**
      * The attributes that should be hidden for arrays.
