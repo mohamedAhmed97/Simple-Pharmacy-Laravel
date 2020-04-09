@@ -40,7 +40,7 @@
         <a href="index3.html" class="brand-link">
           <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                style="opacity: .8">
-          <span class="brand-text font-weight-light">Admin Dashboard</span>
+          <span class="brand-text font-weight-light">Pharmacy Dashboard</span>
         </a>
     
         <!-- Sidebar -->
@@ -198,7 +198,7 @@
                 <li class="nav-item">
                    <a class="bg-warning btn" data-widget="pushmenu" href="#">
                    <i class="fas fa-angle-double-left fa-2x"></i></a>
-                   <h1 class="m-0 text-dark">Admins</h1>
+                   <h1 class="m-0 text-dark">user : {{Auth::guard('doctor')->user()->name}}</h1>
                 </li>
               </ul>
               </nav>
@@ -223,7 +223,7 @@
 <section>
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">Pharmacy</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.2

@@ -16,8 +16,8 @@ class DoctorController extends Controller
     
 
     public function index()
-    {
-         //current user
+    {  
+        //current user
         $user=Auth::guard('doctor')->user();
         //get doctors
         $doctors=Doctor::where('id','!=',$user->id)

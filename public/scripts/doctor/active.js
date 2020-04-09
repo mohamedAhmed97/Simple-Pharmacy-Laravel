@@ -12,7 +12,7 @@ function activition (id){
             console.log("received Token"+token);
             $.ajax(
             {
-                url: "/pharmacy/doctors/18/activations",
+                url: "/pharmacy/doctors/"+id+"/activations",
                 type: 'PUT',
                 data: {
                     "id": id,

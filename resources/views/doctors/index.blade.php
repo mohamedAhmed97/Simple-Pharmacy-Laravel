@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+@if (Session::has('sweet_alert.alert'))
+<script>
+  swal({!! Session::get('sweet_alert.alert') !!});
+</script>
+@endif
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Main Sidebar Container -->
