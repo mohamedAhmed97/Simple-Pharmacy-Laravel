@@ -11,15 +11,25 @@ class UserController extends Controller
    //store
    public function store(request $request)
    {
+
+        //name of picture
+        $user_avatar_name=time().$request->file('avatar')->getClientOriginalName();
+        //upload file
+        $path = $request->file('avatar')->storeAs(
+            'public/user',$pharmacy_avatar_name);
+
        $user=User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'phone'=>$request->phone,
-            'flat'=>$request->flat,
-            'Building'=>$request->Building,
-            'road'=>$request->road,
-            'area_id'=>$request->area_id,
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'password'=>$request->password,
+        'phone'=>$request->phone,
+        'floor_number'=>$request->floor_number,
+        'flat_number'=>$request->flat_number,
+        'building_number'=>$request->building_number,
+        'street_id'=>$request->street_id,
+        'is_main'=>$request->is_main,
+        'area_id'=>$request->area_id,
+        'avatar'=>$request->user_avatar_name,
         ]);
         if($user)
         {
