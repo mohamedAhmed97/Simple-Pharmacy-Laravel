@@ -14,10 +14,11 @@ class UserController extends Controller
     }
 
     public function show(){
+        $user= User::find(request()->user);
         //check if the user doesn't exist in the database
-        if(is_null(request()->id)){
+        if(is_null($user)){
             return response()->json(["Error"=>"Record doesn't found in the datatabase!! Enter a valid id ^_^"],404);
         }
-        return new UserResource(User::find(request()->user));
+        return new UserResource($user);
     }
 }

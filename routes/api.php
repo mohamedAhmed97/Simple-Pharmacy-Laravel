@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'users'], function(){
-Route::get('/', 'API\UserController@index');
-Route::get('/{user}', 'API\UserController@show');
+    Route::get('/', 'API\UserController@index');
+    Route::get('/{user}', 'API\UserController@show');
 });
 
 
