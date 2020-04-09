@@ -109,12 +109,14 @@ return [
             'throttle' => 60,
         ],
 
-        'users' => [
+        'api' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
+
+       
     ],
 
     /*
