@@ -18,8 +18,18 @@ use Illuminate\Validation\ValidationException;
 //registe
 Route::post('/v1/register','API\users\UserController@store');
 
+<<<<<<< HEAD
 //login
 Route::post('/v1/login', function (Request $request) {
+=======
+Route::group(['prefix' => 'users'], function(){
+    Route::get('/', 'API\UserController@index');
+    Route::get('/{user}', 'API\UserController@show');
+});
+
+
+Route::post('/sanctum/token', function (Request $request) {
+>>>>>>> 3ef032455b9b223e2df8b82b5d69a227c176ddff
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
