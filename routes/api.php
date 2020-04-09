@@ -19,7 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users', 'API\UserController@index');
+Route::group(['prefix' => 'users'], function(){
+Route::get('/', 'API\UserController@index');
+Route::get('/{user}', 'API\UserController@show');
+});
+
 
 Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
