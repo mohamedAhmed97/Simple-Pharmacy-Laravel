@@ -32,17 +32,24 @@ class MedicineController extends Controller
         // //get pharmacy
         $pharmacy=Pharmacy::find($phar_id);
         $medicines=$request->check;
-
-        foreach($medicines as $key=>$medicine)
-        {
-            $data="quantity".$request->check[$key]; 
-            //get medicine
-            $medicinedata=Medicine::find($medicine);  
-            $quantity=$request->$data;
-            $pharmacy->medicines()->attach($medicinedata ,['quantity'=>$quantity]);
+        if($medicines!=null){
+            foreach($medicines as $key=>$medicine)
+            {
+                $data="quantity".$request->check[$key]; 
+                //get medicine
+                $medicinedata=Medicine::find($medicine);  
+                $quantity=$request->$data;
+                $pharmacy->medicines()->attach($medicinedata ,['quantity'=>$quantity]);
+            }
+            alert()->success('medicine  Added.', 'Operation Done!');
+            return redirect()->route('medicines.index');
         }
-        alert()->success('medicine  Added.', 'Operation Done!');
-        return redirect()->route('medicines.index');
+        else
+        {
+            alert()->error('You didnt Select Any Medicine.', 'Operation Fail!');
+            return redirect()->route('medicines.index');
+        }
+      
     }
 
     public function show(){ 

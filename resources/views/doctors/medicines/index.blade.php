@@ -1,18 +1,17 @@
-@extends('admins.sidebar')
+@extends('layouts.doctor')
 @section('content')
+
 @if (Session::has('sweet_alert.alert'))
 <script>
   swal({!! Session::get('sweet_alert.alert') !!});
 </script>
 @endif
 
-<div class="content-wrapper">
-    <div class="card m-3 p-2">
-          <div class="card-header border-transparent">
-                <h3 class="card-title font-weight-bold">Medicines</h3>
-          </div>
-            <div class="card-body">
-                <div class="table-responsive m-2">
+<div class="card">
+  <div class="card-header">
+    Medicine
+  </div>
+  <div class="card-body">
                   <table class="table table-bordered data-table m-1 " id="medicines_table">
                     <thead class="m-3">
                     <a class="btn btn-success font-weight-bold p-2 m-3"
