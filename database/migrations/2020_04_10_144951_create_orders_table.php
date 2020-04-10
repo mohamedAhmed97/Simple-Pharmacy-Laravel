@@ -15,17 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_name');
-            $table->string('Deliver_Address');
+            
             $table->timestamps();
-            $table->foreignId('dr_id')->references('id')->on('pharmacies')->onDelete('cascade');
-            $table->string('isinsured');
-            $table->string('status');
-            $table->integer('quantity'); 
-            $table->float('price');
-            $table->float('totalprice');
-            
-            
+            $table->foreignId('dr_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreignId('area_id')->references('id')->on('areas')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('status')->default("waiting");
         });
     }
 
