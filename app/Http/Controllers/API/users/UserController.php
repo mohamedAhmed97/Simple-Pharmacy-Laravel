@@ -24,7 +24,7 @@ class UserController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'gender'=>$request->gender,
-            'password'=>$request->password, 
+            'password'=>Hash::make($request->password), 
             'date_of_birth'=>$request->date_of_birth,
             'mobile_number'=>$request->mobile_number,
             'national_id'=>$request->national_id,
@@ -34,7 +34,10 @@ class UserController extends Controller
             'floor_number'=>$request->floor_number,
             'flat_number'=>$request->flat_number,
             'is_main'=>$request->is_main,    
+<<<<<<< HEAD
             'avatar'=>$user_avatar_name,
+=======
+>>>>>>> 62a1aaea2e29760e27bf89fb16998ea3883de50e
         ]);
         
         if($user)
