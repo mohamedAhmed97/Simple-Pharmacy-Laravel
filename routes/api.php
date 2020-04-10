@@ -22,6 +22,8 @@ Route::group(['prefix' => 'users'], function(){
     Route::get('/', 'API\UserController@index');
     Route::get('/{user}', 'API\UserController@show');
     Route::post('/', 'API\UserController@store');
+    Route::delete('/{user}', 'API\UserController@destroy');
+
 });
 
 //login

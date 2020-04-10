@@ -49,4 +49,9 @@ class UserController extends Controller
             return response()->json(["Error"=>"Sorry,You can't create a new user as you have to fill all the required fields"],404);
         }
     }
+
+    public function destroy(){
+        User::find(request()->user)->delete();
+        return response()->json(["Success"=>"You deleted this user successfully, This record isn't a part of the database anymore"],200);
+    }
 }
