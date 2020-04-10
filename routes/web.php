@@ -59,8 +59,11 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth'], function(){
     Route::get('users', 'UserController@index')->name('users.index'); 
 
     //==================admin's. doctor. order==========================
-    Route::get('/doctors/orders', 'OrderController@index')->name('orders.index');
-    Route::get('/doctors/orders/create', 'OrderController@create')->name('orders.create');
+    Route::get('/orders', 'OrderController@index')->name('orders.index');
+    Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+    Route::post('/orders', 'OrderController@store')->name('orders.store');
+    Route::delete('/orders/{orders}', 'OrderController@destroy')->name('orders.destroy');
+    Route::get('/orders/{orders}/edit', 'OrderController@edit')->name('orders.edit');
 
 
     //==================admin's. doctor==============================

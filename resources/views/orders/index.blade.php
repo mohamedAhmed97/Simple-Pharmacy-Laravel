@@ -9,6 +9,9 @@
         <div class="container m-3">
         <table class="table">
             <thead>
+            <a class="btn btn-success font-weight-bold p-2 m-3"
+                            href="{{route('orders.create')}}">New order</a>
+                    <tr>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Order Name</th> 
@@ -24,28 +27,27 @@
                     
                 </tr>
             </thead>
-                <button class="btn btn-success mb-5"><a href="<button class="btn btn-success mb-5"><a href="/admins/doctors/orders/create"><h3>Add order</h3></a></button>
+                
                 <tbody>
-              
+                @foreach($orders as $order)
                   <tr>
-                    <th scope="row">1</th>
-                    <th scope="row">first order</th>
-                    <th scope="row">first address</th>
-                    <th scope="row">Now</th>
-                    <th scope="row">Ahmed</th>
-                    <th scope="row">true</th>
-                    <th scope="row">New</th>
-                    <th scope="row">500</th>
-                    <td><button type="button" class="btn btn-dark"><a href="#"> view details </a> </button>
-                    <button type="button" class="btn btn-warning"><a href="#">Update info</a></button>
+                    <th scope="row">{{$order->id}}</th>
+                    <th scope="row">{{$order->order_name}}</th>
+                    <th scope="row">{{$order->Deliver_Address}}</th>
+                    <th scope="row">{{$order->created_at}}</th>
+                    <th scope="row">{{$doctor->name}}</th>
+                    <th scope="row">{{$order->isinsured}}</th>
+                    <th scope="row">{{$order->status}}</th>
+                    <th scope="row">{{$order->price}}</th>
+                    <button type="button" class="btn btn-warning"><a href="{{route('orders.edit',['orders' => $order->id])}}">Update info</a></button>
                     
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{route('orders.destroy',['orders' => $order->id])}}">
                             @csrf
                             {{method_field('DELETE')}}
                             <button type='submit' class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this order?')">Delete</button>
                         </form>
                     </td> 
-    
+                    @endforeach
                 </tbody>
            
         </table>

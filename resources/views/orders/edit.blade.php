@@ -5,25 +5,15 @@
     <body>
         <h1> Here you can add a new order </h1>
         <div class="container">
-        <form method="POST" action="{{route('orders.store')}}"> 
+        <form method="POST" action="{{route('orders.index')}}"> 
             @csrf 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 User Name--Order Name
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        @foreach($users as $user)
-                        <a class="dropdown-item" name="ordername">{{$user->name}}</a>
-                        @endforeach
-                    
-                </div>
-            </div>
+            <h3>{{$user->name}}</h3>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Medicine Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        @foreach($medicines as $medicine)
+                        @foreach($mediciness as $medicine)
                         <a class="dropdown-item" name="medicinenamedrop">{{$medicine->name}}</a>
                         @endforeach   
                 </div>
@@ -36,17 +26,17 @@
              </div>
              <div class="form-group" >
                 <label for="medicinequantity">Medicine quanitiy</label>
-                <input name="medicinequantity" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input name="medicinequantity" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->quantity}}" required>
                 <small class="form-text text-muted"></small>
              </div>
              <div class="form-group" >
                 <label for="medicineprice">Medicine price</label>
-                <input name="medicineprice" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input name="medicineprice" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->price}}" required>
                 <small class="form-text text-muted"></small>
              </div>
             <div class="form-group">
                 <label for="address">Deliver address</label>
-                <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$area->en_name}}" required>
                 <small class="form-text text-muted"></small>
             </div>
             <div class="form-group">
@@ -56,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label for="doctorname">Doctor ID</label>
-                <input name="doctorid" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input name="doctorid" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$doctor->name}}" required>
                
             </div>
             <div class="form-group">
@@ -70,7 +60,7 @@
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
-                <input name="status" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input name="status" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->status}}" required>
                
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

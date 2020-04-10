@@ -67,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/admins/orders" class="nav-link">
                   <i class="fas fa-file-medical text-white nav-icon"></i>
                   <p class="text-white font-weight-bold">Orders​</p>
                 </a>
