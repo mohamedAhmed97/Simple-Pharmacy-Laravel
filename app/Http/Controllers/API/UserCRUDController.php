@@ -40,12 +40,20 @@ class UserCRUDController extends Controller
 
     //delete a user from the database (users table)
     public function destroy(){
-        User::find(request()->user)->delete();
+        $user=User::find(request()->user);
+        if(is_null($user)){
+            return response()->json(["Error"=>"Record doesn't found in the datatabase!! Enter a valid id ^_^"],404);
+        }
+        $user->delete();
         return response()->json(["Success"=>"You deleted this user successfully, This record isn't a part of the database anymore"],200);
     }
     
     //update a user in the database (users table)
-    public function update(Request $request, User $user){ 
+    public function update(Request $request, $userId){ 
+        $user= User::find($userId);
+        if(is_null($user)){
+            return response()->json(["Error"=>"Record doesn't found in the datatabase!! Enter a valid id ^_^"],404);
+        }
         $user->update($request->all()); 
         return response()->json(["Success"=>"User Updated successfully",
                                     "New data:"=> new UserResource($user)],200);
