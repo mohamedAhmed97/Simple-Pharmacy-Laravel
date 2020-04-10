@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Resources\UserResource;
+use App\Http\Requests\UserRequest;
 
+//This Controller for admins to make CRUD operations on Users
 class UserCRUDController extends Controller
 {
     //get all the users in the database (users table)
@@ -25,7 +27,7 @@ class UserCRUDController extends Controller
     }
 
     //add a new user to the database (users table)
-    public function store(Request $request){
+    public function store(UserRequest $request){
         $user=User::create($request->all());
         if($user)
         {
@@ -49,7 +51,7 @@ class UserCRUDController extends Controller
     }
     
     //update a user in the database (users table)
-    public function update(Request $request, $userId){ 
+    public function update(UserRequest $request, $userId){ 
         $user= User::find($userId);
         if(is_null($user)){
             return response()->json(["Error"=>"Record doesn't found in the datatabase!! Enter a valid id ^_^"],404);
