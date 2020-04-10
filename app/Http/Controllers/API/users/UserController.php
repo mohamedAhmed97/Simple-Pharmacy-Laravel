@@ -11,25 +11,27 @@ class UserController extends Controller
    //store
    public function store(request $request)
    {
-
         //name of picture
-        $user_avatar_name=time().$request->file('avatar')->getClientOriginalName();
+        $user_avatar_name= time().$request->file('avatar')->getClientOriginalName();
         //upload file
         $path = $request->file('avatar')->storeAs(
             'public/user',$pharmacy_avatar_name);
 
        $user=User::create([
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>$request->password,
-        'phone'=>$request->phone,
-        'floor_number'=>$request->floor_number,
-        'flat_number'=>$request->flat_number,
-        'building_number'=>$request->building_number,
-        'street_id'=>$request->street_id,
-        'is_main'=>$request->is_main,
-        'area_id'=>$request->area_id,
-        'avatar'=>$request->user_avatar_name,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'gender'=>$request->gender,
+            'password'=>$request->password, 
+            'date_of_birth'=>$request->date_of_birth,
+            'avatar'=>$request->user_avatar_name,
+            'mobile_number'=>$request->mobile_number,
+            'national_id'=>$request->national_id,
+            'area_id'=>$request->area_id,
+            'street_name'=>$request->street_name,
+            'building_number'=>$request->building_number,
+            'floor_number'=>$request->floor_number,
+            'flat_number'=>$request->flat_number,
+            'is_main'=>$request->is_main,    
         ]);
         if($user)
         {
