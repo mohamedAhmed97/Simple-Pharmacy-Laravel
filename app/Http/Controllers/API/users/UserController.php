@@ -16,7 +16,7 @@ class UserController extends Controller
         $user_avatar_name=time().$request->file('avatar')->getClientOriginalName();
         //upload file
         $path = $request->file('avatar')->storeAs(
-            'public/user',$pharmacy_avatar_name);
+            'public/user',$user_avatar_name);
 
        $user=User::create([
         'name'=>$request->name,
