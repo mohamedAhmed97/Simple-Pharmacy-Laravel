@@ -19,8 +19,12 @@ use Illuminate\Validation\ValidationException;
 Route::post('/v1/register','API\users\UserController@store');
 
 Route::group(['prefix' => 'users'], function(){
-    Route::get('/', 'API\UserController@index');
-    Route::get('/{user}', 'API\UserController@show');
+    Route::get('/', 'API\UserCRUDController@index');
+    Route::get('/{user}', 'API\UserCRUDController@show');
+    Route::post('/', 'API\UserCRUDController@store');
+    Route::delete('/{user}', 'API\UserCRUDController@destroy');
+    Route::put('/{user}', 'API\UserCRUDController@update');
+
 });
 
 //login
