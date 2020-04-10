@@ -21,19 +21,6 @@ class UserController extends Controller
             'public/user',$user_avatar_name);
 
        $user=User::create([
-<<<<<<< HEAD
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>Hash::make($request->password),
-        'phone'=>$request->phone,
-        'floor_number'=>$request->floor_number,
-        'flat_number'=>$request->flat_number,
-        'building_number'=>$request->building_number,
-        'street_id'=>$request->street_id,
-        'is_main'=>$request->is_main,
-        'area_id'=>$request->area_id,
-        'avatar'=>$user_avatar_name,
-=======
             'name'=>$request->name,
             'email'=>$request->email,
             'gender'=>$request->gender,
@@ -48,7 +35,6 @@ class UserController extends Controller
             'floor_number'=>$request->floor_number,
             'flat_number'=>$request->flat_number,
             'is_main'=>$request->is_main,    
->>>>>>> fdf427d8e7ee87daca9729af37b56159d92228de
         ]);
         
         if($user)

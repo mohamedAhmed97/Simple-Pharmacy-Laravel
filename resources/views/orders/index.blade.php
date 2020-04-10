@@ -37,9 +37,9 @@
                     <th scope="row">New</th>
                     <th scope="row">500</th>
                     <td><button type="button" class="btn btn-dark"><a href="#"> view details </a> </button>
-                    <button type="button" class="btn btn-warning"><a href="#">Update info</a></button>
+                    <button type="button" class="btn btn-warning"><a href="{{route('orders.edit',['orders' => $orders->id])}}">Update info</a></button>
                     
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{route('orders.destroy',['orders' => $orders->id])}}">
                             @csrf
                             {{method_field('DELETE')}}
                             <button type='submit' class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this order?')">Delete</button>

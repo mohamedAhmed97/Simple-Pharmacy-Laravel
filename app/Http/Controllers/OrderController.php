@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Area;
 use App\Doctor;
 use App\Order;
 use Illuminate\Http\Request;
@@ -9,7 +10,11 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        return view('orders.index');
+        $orders = Order::all();
+        
+        return view('orders.index' ,[
+        'orders' => $orders,
+        ]);
     }
     public function create()
     {
@@ -32,12 +37,14 @@ class OrderController extends Controller
         $orderID = $request->orders;
         $order = Order::find($orderID);
         $doctorId = Doctor::find($orderID);
+        $areaId = Area::find($orderID);
       
         
         return view('doctors.orders.edit',[
            
-            'orders' => $order,
-            'doctor' => $doctorId
+            'order' => $order,
+            'doctor' => $doctorId,
+            'area' => $areaId
         ]);
     }
 

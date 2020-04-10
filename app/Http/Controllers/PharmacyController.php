@@ -14,10 +14,6 @@ use DB;
 use App\Http\Requests\StorePharmacy;
 use Hash;
 use Yajra\DataTables\Facades\DataTables;
-
-
-
-
 class PharmacyController extends Controller
 {
     
@@ -59,7 +55,7 @@ class PharmacyController extends Controller
             'public/pharmacies',$pharmacy_avatar_name);
 
         //store pharmacy
-        $paharamcy=order::create([
+        $paharamcy=Pharmacy::create([
             'ph_name' => $request->ph_name ,
             'area_id' => $request->ph_area,
             'ph_avatar'=>$pharmacy_avatar_name,

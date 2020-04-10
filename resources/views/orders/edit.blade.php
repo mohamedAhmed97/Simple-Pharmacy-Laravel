@@ -5,29 +5,28 @@
     <body>
         <h1> Here you can add a new order </h1>
         <div class="container">
-        <form> 
+        <form method="POST" action="{{route('orders.index')}}"> 
             @csrf 
+            <h3>{{$user->name}}</h3>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 User Name--Order Name
+                 Medicine Name
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                <select class="custom-select" name="username" value="{{$order->orde_name}}"required>
-                    <!--loop for users-->
-                    @foreach ($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
-                    @endforeach
-                </select>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @foreach($mediciness as $medicine)
+                        <a class="dropdown-item" name="medicinenamedrop">{{$medicine->name}}</a>
+                        @endforeach   
                 </div>
             </div>
+            
             <div class="form-group" >
                 <label for="medicinename">Medicine Name</label>
-                <input name="medicinename" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->medicine_name}}" required>
+                <input name="medicinename" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="If you did not find the medicine in list, writ it now">
                 <small class="form-text text-muted"></small>
              </div>
              <div class="form-group" >
                 <label for="medicinequantity">Medicine quanitiy</label>
-                <input name="medicinequantity" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->quantity}}"required>
+                <input name="medicinequantity" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->quantity}}" required>
                 <small class="form-text text-muted"></small>
              </div>
              <div class="form-group" >
@@ -37,22 +36,27 @@
              </div>
             <div class="form-group">
                 <label for="address">Deliver address</label>
-                <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$order->Deliver_Address}}" required>
+                <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$area->en_name}}" required>
                 <small class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="doctorname">Doctor Name</label>
-                <input name="doctorname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$doctor->name}}" required>
+                <input name="doctorname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+               
+            </div>
+            <div class="form-group">
+                <label for="doctorname">Doctor ID</label>
+                <input name="doctorid" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$doctor->name}}" required>
                
             </div>
             <div class="form-group">
                 <label for="isinsured">Is insured</label>
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="yes">Yes</label>
-                     </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="no">No</label>
-                </div>  
+                <div class="radio">
+                    <label><input type="radio" name="isinsured" checked>Yes</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="isinsured">No</label>
+                    </div>
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
