@@ -27,7 +27,7 @@
                     
                 </tr>
             </thead>
-                <button class="btn btn-success mb-5"><a href="<button class="btn btn-success mb-5"><a href="/admins/doctors/orders/create"><h3>Add order</h3></a></button>
+                
                 <tbody>
                 @foreach($orders as $order)
                   <tr>

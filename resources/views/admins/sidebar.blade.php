@@ -63,11 +63,11 @@
             <li class="nav-item">
                 <a href="/admins/pharmacies" class="nav-link">
                   <i class="fas fa-prescription-bottle-alt nav-icon text-white"></i>
-                  <p class="text-white font-weight-bold"><a href="/admins/orders">View Pharmacies</a></p>
+                  <p class="text-white font-weight-bold">View Pharmacies</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/admins/orders" class="nav-link">
                   <i class="fas fa-file-medical text-white nav-icon"></i>
                   <p class="text-white font-weight-bold">Orders​</p>
                 </a>
