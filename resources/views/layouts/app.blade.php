@@ -41,9 +41,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                        @if (Route::has('login'))
+                        @if (Route::has('/admins'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a href="{{ url('/admins') }}">Home</a>
                             </li>
                             @endif
                         @else

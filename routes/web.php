@@ -55,6 +55,9 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth'], function(){
     Route::get('areas/{areas}/edit', 'AreaController@edit')->name('areas.edit');    
     Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
 
+    //=================admin's users =================================
+    Route::get('users', 'UserController@index')->name('users.index'); 
+
     //==================admin's. doctor. order==========================
     Route::get('/orders', 'OrderController@index')->name('orders.index');
     Route::get('/orders/create', 'OrderController@create')->name('orders.create');
