@@ -31,8 +31,8 @@ class UserRequest extends FormRequest
             'password'=>'required',
             'date_of_birth'=>'required|nullable|date_format:Y-m-d|before:today',
             'avatar'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'mobile_number'=>'required|numeric|digits:11',
-            'national_id​'=>'required|numeric|digits:14',
+            'mobile_number'=>'required|numeric|digits:11|unique:users',
+            'national_id​'=>'required|numeric|digits:14|unique:users',
             'area_id'=>'numeric|exists:areas,id',
             'street_name'=>'min:6|max:255',
             'building_number'=>'numeric',
@@ -47,7 +47,8 @@ class UserRequest extends FormRequest
         return [
             'gender.in' => 'The gender must be male or female ONLY!', 
             'date_of_birth.date_format'=>'The date of birth does not match the format Y-m-d
-                EX: 1997-02-26'    
+                EX: 1997-02-26',
+            'mobile_number.unique' => 'Mobile number is unique, you have to enter a different one because that one has already been taken!',
         ] ;
     }
 }
