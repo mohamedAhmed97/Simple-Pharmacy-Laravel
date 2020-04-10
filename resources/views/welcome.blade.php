@@ -8,11 +8,15 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <!-- Bootstrap cdn -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href=" {{ asset('plugins/fontawesome-free/css/all.min.css') }}">
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
+            body {
+                background-image: url("https://media2.giphy.com/media/3oz8xsV4kW2CShqVpe/giphy.gif");
+                /* background-color: #fff; */
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -40,12 +44,13 @@
                 top: 18px;
             }
 
-            .content {
-                text-align: center;
+            span{
+                color: yellow;
+                font-size: 80px;
             }
 
-            .title {
-                font-size: 84px;
+            .content {
+                text-align: center;
             }
 
             .links > a {
@@ -66,30 +71,24 @@
     <body>
     <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links bg-warning">
                     @auth
                         <a href="{{ url('/admins') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
                     @endauth
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    <h3><b>Simple</b> Pharmacy System</h3>
+            <div class="content bg-info p-5 m-3 rounded-pill">
+                <div class="m-b-md">
+                    <h1 class="text-light font-weight-bold">
+                        <span class="font-weight-bold">Simple</span> Pharmacy System</h1>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <a class="m-3 btn btn-light text-info font-weight-bold" 
+                href="{{ route('login') }}"><i class="fas fa-users-cog text-info"></i> 
+                Login As Admin</a>
+                <a class="m-3 btn btn-light text-info font-weight-bold" 
+                href="/pharmacy/login"><i class="fas fa-user-md text-info"></i> 
+                Login As Pharmacy Owner</a>
             </div>
         </div>
     </body>

@@ -115,23 +115,14 @@
                   <p class="text-warning font-weight-bold">Areas​</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+              <li class="nav-item">
+            <a href="/admins/users" class="nav-link">
               <i class="fas fa-users nav-icon text-success"></i>
               <p class="text-success font-weight-bold">
               Users​
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-address-book nav-icon text-white"></i>
-                  <p class="text-white font-weight-bold">User Addresses​</p>
-                </a>
-              </li>
-            </ul>
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="/admins/medicines" class="nav-link">
                   <i class="fas fa-pills nav-icon text-white"></i>
                   <p class="text-white font-weight-bold">Medicines</p>
