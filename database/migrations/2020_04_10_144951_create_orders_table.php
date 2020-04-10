@@ -15,7 +15,6 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            
             $table->timestamps();
             $table->foreignId('dr_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->foreignId('area_id')->references('id')->on('areas')->onDelete('cascade');
