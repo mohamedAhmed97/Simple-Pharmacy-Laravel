@@ -8,11 +8,11 @@ use App\Notifications\UserWelcomeNotification;
 use App\User;
 use Hash;
 use Notification;
-
+use App\Http\Requests\UserRegister;
 class UserController extends Controller
 {
    //store
-   public function store(request $request)
+   public function store(UserRegister $request)
    {
         //name of picture
         $user_avatar_name= time().$request->file('avatar')->getClientOriginalName();
@@ -34,10 +34,7 @@ class UserController extends Controller
             'floor_number'=>$request->floor_number,
             'flat_number'=>$request->flat_number,
             'is_main'=>$request->is_main,    
-<<<<<<< HEAD
             'avatar'=>$user_avatar_name,
-=======
->>>>>>> 62a1aaea2e29760e27bf89fb16998ea3883de50e
         ]);
         
         if($user)

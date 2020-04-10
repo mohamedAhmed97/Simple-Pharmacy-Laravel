@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('floor_number')->nullable();
             $table->tinyInteger('flat_number')->nullable();  
             $table->integer('is_main')->default(0);
-            $table->string('national_id')->nullable()->unique();
+            $table->string('national_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });
