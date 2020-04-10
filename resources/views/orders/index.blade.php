@@ -9,6 +9,9 @@
         <div class="container m-3">
         <table class="table">
             <thead>
+            <a class="btn btn-success font-weight-bold p-2 m-3"
+                            href="{{route('orders.create')}}">New order</a>
+                    <tr>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Order Name</th> 

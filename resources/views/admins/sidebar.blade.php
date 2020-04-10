@@ -63,7 +63,7 @@
             <li class="nav-item">
                 <a href="/admins/pharmacies" class="nav-link">
                   <i class="fas fa-prescription-bottle-alt nav-icon text-white"></i>
-                  <p class="text-white font-weight-bold">View Pharmacies</p>
+                  <p class="text-white font-weight-bold"><a href="/admins/orders">View Pharmacies</a></p>
                 </a>
               </li>
               <li class="nav-item">

@@ -24,6 +24,7 @@
                     <a class="btn btn-success font-weight-bold p-2 m-3"
                             href="{{route('pharmacies.create')}}">Add Pharmacy</a>
                     <tr>
+                    
                       <th>Pharmacy</th>
                       <th> Image</th>
                       <th>Area</th>
