@@ -56,10 +56,11 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth'], function(){
     Route::put('areas/{areas}', 'AreaController@update')->name('areas.update');
 
     //==================admin's. doctor. order==========================
-    Route::get('/doctors/orders', 'OrderController@index')->name('orders.index');
-    Route::get('/doctors/orders/create', 'OrderController@create')->name('orders.create');
-    Route::delete('/doctors/orders/{orders}', 'OrderController@destroy')->name('orders.destroy');
-    Route::get('/doctors/orders/{orders}/edit', 'OrderController@edit')->name('orders.edit');
+    Route::get('/orders', 'OrderController@index')->name('orders.index');
+    Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+    Route::post('/orders', 'OrderController@store')->name('orders.store');
+    Route::delete('/orders/{orders}', 'OrderController@destroy')->name('orders.destroy');
+    Route::get('/orders/{orders}/edit', 'OrderController@edit')->name('orders.edit');
 
 
     //==================admin's. doctor==============================
