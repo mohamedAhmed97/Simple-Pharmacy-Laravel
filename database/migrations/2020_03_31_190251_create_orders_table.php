@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->foreignId('dr_id')->references('id')->on('pharmacies')->onDelete('cascade');
             $table->string('isinsured');
-            $table->integer('status');
+            $table->string('status');
             $table->integer('quantity'); 
             $table->float('price');
             $table->float('totalprice');
