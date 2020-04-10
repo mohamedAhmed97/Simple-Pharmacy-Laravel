@@ -55,7 +55,7 @@ class PharmacyController extends Controller
             'public/pharmacies',$pharmacy_avatar_name);
 
         //store pharmacy
-        $paharamcy=Pharmacy::create([
+        $paharamcy=order::create([
             'ph_name' => $request->ph_name ,
             'area_id' => $request->ph_area,
             'ph_avatar'=>$pharmacy_avatar_name,
