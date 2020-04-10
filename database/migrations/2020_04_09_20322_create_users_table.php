@@ -20,9 +20,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->string('flat')->nullable();
-            $table->string('Building')->nullable();
-            $table->string('road')->nullable();
+            $table->string('floor_number')->nullable();
+            $table->string('flat_number')->nullable();
+            $table->string('building_number')->nullable();
+            $table->string('street_id')->nullable();
+            $table->integer('is_main')->default(0);
+            $table->string('avatar')->nullable();
             $table->foreignId('area_id')->references('id')->on('areas')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
