@@ -11,22 +11,25 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->enum('gender', array('male', 'female'));
             $table->string('password');
-            $table->string('phone')->nullable();
-            $table->string('floor_number')->nullable();
-            $table->string('flat_number')->nullable();
-            $table->string('building_number')->nullable();
-            $table->string('street_id')->nullable();
-            $table->integer('is_main')->default(0);
+            $table->date('date_of_birth');
             $table->string('avatar')->nullable();
+            $table->unsignedBigInteger('mobile_number')->unique();
+            $table->unsignedBigInteger('national_id​')->unique();
             $table->foreignId('area_id')->references('id')->on('areas')->onDelete('cascade');
+            $table->string('street_name')->nullable();
+            $table->tinyInteger('building_number')->nullable();
+            $table->tinyInteger('floor_number')->nullable();
+            $table->tinyInteger('flat_number')->nullable();  
+            $table->integer('is_main')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

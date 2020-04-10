@@ -12,12 +12,16 @@ class AddressResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+
     public function toArray($request)
     {
         return [
-                'flat'=>$this->flat,
-                'Building'=>$this->Building,
-                'road'=>$this->road,
+                'area_id'=>$this->area_id,
+                'street_name'=>$this->street_name,
+                'building_number'=>$this->building_number,
+                'floor_number'=>$this->floor_number,
+                'flat_number'=>$this->flat_number,
+                'is_main'=>$this->is_main,    
             ];
     }
 }
