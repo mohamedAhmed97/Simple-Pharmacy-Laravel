@@ -17,9 +17,12 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_name');
             $table->string('Deliver_Address');
-            $table->integer('action')->default(0);
             $table->integer('status')->default(1);
             $table->foreignId('dr_id')->references('id')->on('pharmacies')->onDelete('cascade');
+            $table->string('creator_type');
+            $table->boolean('is_insured')->default(true);
+            $table->integer('quantity');
+            $table->float('total_price');
             $table->timestamps();
         });
     }
