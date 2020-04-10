@@ -14,8 +14,13 @@ use DB;
 use App\Http\Requests\StorePharmacy;
 use Hash;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
+
 class PharmacyController extends Controller
 {
+    use SoftDeletes;
     
     public function index(){
         $pahrmacies = Pharmacy::all();
@@ -80,8 +85,8 @@ class PharmacyController extends Controller
     {
         $request = request();
         $pharmacyId = $request->pharmacy;
-        Pharmacy::where('id', $pharmacyId)->delete();
-        Doctor::where('pharmacy_id',$pharmacyId)->delete();
+        Pharmacy::where('id', $pharmacyId)->withTrashed();
+        Doctor::where('pharmacy_id',$pharmacyId)->withTrashed();
         
         return redirect()->route('pharmacies.index');
     }
