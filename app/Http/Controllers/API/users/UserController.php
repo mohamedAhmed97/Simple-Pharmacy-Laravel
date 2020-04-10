@@ -4,8 +4,11 @@ namespace App\Http\Controllers\API\users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Notifications\UserWelcomeNotification;
 use App\User;
 use Hash;
+use Notification;
+
 class UserController extends Controller
 {
    //store
@@ -21,7 +24,7 @@ class UserController extends Controller
        $user=User::create([
         'name'=>$request->name,
         'email'=>$request->email,
-        'password'=>$request->password,
+        'password'=>Hash::make($request->password),
         'phone'=>$request->phone,
         'floor_number'=>$request->floor_number,
         'flat_number'=>$request->flat_number,
@@ -29,10 +32,20 @@ class UserController extends Controller
         'street_id'=>$request->street_id,
         'is_main'=>$request->is_main,
         'area_id'=>$request->area_id,
-        'avatar'=>$request->user_avatar_name,
+        'avatar'=>$user_avatar_name,
         ]);
+        
         if($user)
         {
+            $details = [
+                'greeting' => 'Hi '.$user->name,
+                'body' => 'This is my first notification from ITI',
+                'thanks' => 'Thank you for using Simple Simple Simple Simpe Pharmacy!',
+                'actionText' => 'View My Site',
+                'actionURL' => url('/'),
+                'order_id' => 101
+            ];
+            Notification::send($user, new UserWelcomeNotification($details));
             return response()->json([
                 'message' => 'User Added',
                 'status' => '200'
