@@ -15,6 +15,8 @@ class CreatePictureOrdersTable extends Migration
     {
         Schema::create('picture_orders', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar')->nullable();
+            $table->foreignId('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
     }

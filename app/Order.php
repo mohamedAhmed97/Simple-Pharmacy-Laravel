@@ -15,7 +15,10 @@ class Order extends Model
       'quantity',
       'price',
       'status',
-      'totalprice'
+      'totalprice',
+      'area_id',
+      'api_token',
+
 
     ];
 }

@@ -16,7 +16,7 @@ use Illuminate\Validation\ValidationException;
 |
 */
 //registe
-Route::post('/v1/register','API\users\UserController@store');
+Route::post('/register','API\users\UserController@store');
 
 Route::group(['prefix' => 'users'], function(){
     Route::get('/', 'API\UserCRUDController@index');
@@ -24,11 +24,10 @@ Route::group(['prefix' => 'users'], function(){
     Route::post('/', 'API\UserCRUDController@store');
     Route::delete('/{user}', 'API\UserCRUDController@destroy');
     Route::put('/{user}', 'API\UserCRUDController@update');
-
 });
 
 //login
-Route::post('/v1/login', function (Request $request) {
+Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
@@ -44,4 +43,8 @@ Route::post('/v1/login', function (Request $request) {
     }
 
     return $user->createToken($request->device_name)->plainTextToken;
+});
+//users order
+Route::group(['prefix' => 'users','middleware'=>'auth:sanctum'], function () {
+    Route::post('/orders/create','API\users\OrderController@store');  
 });
